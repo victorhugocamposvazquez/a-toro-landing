@@ -10,6 +10,9 @@ const AUTH_PREFIX = "/auth";
 /**
  * Refreshes the Supabase auth session on every request and gates routes by role.
  *
+ * Called from the root `proxy.ts` (Next.js 16). Do not name this file `middleware.ts`:
+ * Next.js/Turbopack reserves that filename for the framework boundary.
+ *
  * Rules:
  *  - /admin/*  → requires authenticated user with role = "admin"
  *  - /app/*    → requires any authenticated user (clients + admins)

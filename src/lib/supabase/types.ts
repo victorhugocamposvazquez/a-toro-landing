@@ -5,7 +5,7 @@
  *   npx supabase gen types typescript --project-id <ref> > src/lib/supabase/types.ts
  *
  * Until then, this minimal shape lets the app compile and provides the
- * fields used by middleware, server actions, and the Stripe webhook.
+ * fields used by the root proxy (`proxy.ts`), server actions, and the Stripe webhook.
  */
 type SubscriptionStatus =
   | "trialing"

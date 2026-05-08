@@ -40,9 +40,9 @@ src/
 │   └── placeholder-page.tsx
 ├── lib/
 │   ├── env.ts              ← validación de variables (Zod)
-│   ├── supabase/           ← clientes browser/server/admin + middleware
+│   ├── supabase/           ← clientes browser/server/admin + proxy-session
 │   └── stripe/             ← cliente Stripe + server action de checkout
-└── middleware.ts           ← refresh de sesión + gating por rol
+└── proxy.ts                ← refresh de sesión + gating por rol (Next.js 16)
 
 supabase/
 ├── config.toml
