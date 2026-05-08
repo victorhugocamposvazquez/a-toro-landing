@@ -7,8 +7,8 @@ export function SoyAbrahamSection() {
       id="contenido"
       className="relative py-16 md:py-24"
       style={{
-        background:
-          "linear-gradient(0deg, #c9a9a9 0%, #e9e9e9 52%, #ffffff 98%)",
+        backgroundImage:
+          "linear-gradient(-0.3856deg, #c9a9a9 0.77%, #e9e9e9 52.18%, #ffffff 98.46%)",
       }}
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-24">
@@ -37,7 +37,7 @@ export function SoyAbrahamSection() {
             href="https://instagram.com/abrahamtoro"
             target="_blank"
             rel="noopener"
-            className="absolute left-1/2 -translate-x-1/2 top-[42%] -translate-y-1/2 inline-flex flex-col items-center justify-center bg-brand-dark text-white px-7 py-4 rounded-[10px] border-[10px] border-white/10 drop-shadow-2xl hover:bg-brand-dark/90 transition-colors"
+            className="absolute left-1/2 -translate-x-1/2 top-[42%] -translate-y-1/2 inline-flex flex-col items-center justify-center bg-brand-dark text-white px-7 py-4 rounded-[10px] border-[11px] border-white/10 shadow-[-3px_-1px_17px_rgba(255,255,255,0.85)] hover:bg-brand-dark/90 transition-colors"
           >
             <span className="text-[12px] md:text-[13px] font-bold tracking-wide">
               Sígueme en Instagram

@@ -44,7 +44,7 @@ export function HeroSection() {
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-5">
                 <Link
                   href="/#app"
-                  className="inline-flex items-center justify-center rounded-full bg-brand px-10 py-4 text-white text-[18px] md:text-[22px] hover:bg-brand/90 transition-colors"
+                  className="inline-flex items-center justify-center rounded-[40px] bg-brand px-10 py-5 text-white text-[18px] md:text-[22px] hover:bg-brand/90 transition-colors"
                 >
                   ¡ Pruébala totalmente gratis !
                 </Link>

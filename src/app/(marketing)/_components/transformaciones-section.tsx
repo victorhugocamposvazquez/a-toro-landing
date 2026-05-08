@@ -7,7 +7,7 @@ export function TransformacionesSection() {
   return (
     <section
       id="transformaciones"
-      className="bg-white py-16 md:py-24"
+      className="bg-[#ebebeb] py-16 md:py-24"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-24">
         <SectionHeading
@@ -86,7 +86,7 @@ export function TransformacionesSection() {
         <div className="mt-10 flex justify-center lg:justify-start lg:ml-[332px]">
           <CtaButton
             href="/#app"
-            className="rounded-full px-8 py-3 border-[8px] border-white shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+            className="rounded-[40px] px-8 py-3.5 text-[18px] font-semibold border-[11px] border-[#efefef] shadow-[0_4px_20px_rgba(0,0,0,0.12)] backdrop-blur-[42px]"
           >
             ¡ Comienza la tuya gratis !
           </CtaButton>

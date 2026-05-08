@@ -47,7 +47,7 @@ export function RetosSection() {
           {RETOS.map((reto) => (
             <article
               key={reto.title}
-              className="bg-white rounded-[30px] p-6 md:p-7 flex gap-5 items-center shadow-[0_2px_8.5px_rgba(0,0,0,0.18)]"
+              className="bg-white rounded-[30px] p-6 md:p-7 flex gap-5 items-center shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
             >
               <div className="relative w-32 md:w-[198px] aspect-[198/153] shrink-0 rounded-2xl overflow-hidden">
                 <Image

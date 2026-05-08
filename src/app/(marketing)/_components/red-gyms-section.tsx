@@ -28,7 +28,7 @@ const GYMS = [
 
 export function RedGymsSection() {
   return (
-    <section id="gimnasios" className="bg-white py-16 md:py-24">
+    <section id="gimnasios" className="bg-[#ebebeb] py-16 md:py-24">
       <div className="mx-auto max-w-[1440px] px-6 md:px-24">
         <SectionHeading
           title="Entrenos en los mejores Gimnasios de España"
@@ -39,8 +39,20 @@ export function RedGymsSection() {
           {GYMS.map((gym) => (
             <article
               key={gym.name}
-              className="bg-white rounded-[30px] p-7 flex flex-col items-center gap-3 text-center shadow-[0_2px_8.5px_rgba(0,0,0,0.18)]"
+              className="relative isolate overflow-hidden rounded-[30px] p-7 flex flex-col items-center gap-3 text-center min-h-[243px] shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
             >
+              <div className="absolute inset-0 -z-20 rounded-[30px] bg-white" aria-hidden />
+              <div className="absolute inset-0 -z-10 overflow-hidden rounded-[30px] pointer-events-none">
+                <Image
+                  src="/assets/landing/bg-card-gym.png"
+                  alt=""
+                  fill
+                  sizes="280px"
+                  className="object-cover object-bottom scale-[1.03] translate-y-[28%]"
+                />
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center gap-3 text-center w-full">
               <div className="relative h-16 flex items-center justify-center">
                 <Image
                   src={gym.logo}
@@ -60,6 +72,7 @@ export function RedGymsSection() {
                 <span className="font-bold">Entrenos</span>
                 <span className="ml-2">→</span>
               </CtaButton>
+              </div>
             </article>
           ))}
         </div>

@@ -49,7 +49,7 @@ export function ServiciosSection() {
           {SERVICIOS.map((service) => (
             <article
               key={service.title}
-              className="bg-white rounded-[30px] p-7 md:p-8 flex flex-col gap-3 shadow-[0_2px_8.5px_rgba(0,0,0,0.18)]"
+              className="bg-white rounded-[30px] p-7 md:p-8 flex flex-col gap-3 shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
             >
               <div className="flex items-center gap-3">
                 <div className="relative w-14 h-14 shrink-0 rounded-2xl bg-brand-warm flex items-center justify-center overflow-hidden">
