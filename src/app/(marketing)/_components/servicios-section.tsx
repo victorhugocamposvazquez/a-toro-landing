@@ -5,24 +5,31 @@ import { SectionHeading } from "./section-heading";
 
 const SERVICIOS = [
   {
-    title: "Plan de entrenamiento",
+    title: "Plan de entreamiento",
+    badge: "1 semana gratis",
+    description: (
+      <>
+        <span className="block">Empieza desde 0 con una rutina construida</span>
+        <span className="block">para ti y fácil de seguir.</span>
+      </>
+    ),
+    cta: "Empieza ahora gratis",
+    href: "/#app",
+  },
+  {
+    title: "Guía nutricional",
     badge: "1 semana gratis",
     description:
-      "Empieza desde cero con una rutina pensada para ti y fácil de seguir en casa o en el gym.",
+      "Aprende a come, cuando y porqué sin, con los mejores planes para conseguir tu objetivo.",
+    cta: "Empieza ahora gratis",
     href: "/#app",
   },
   {
-    title: "Plan de nutrición",
-    badge: "Guía incluida",
+    title: "Reto de 2 semanas",
+    badge: "Gratis",
     description:
-      "Aprende a organizar tus comidas con pautas claras para potenciar tu objetivo físico.",
-    href: "/#app",
-  },
-  {
-    title: "Retos express",
-    badge: "2 semanas",
-    description:
-      "Metas cortas y exigentes para romper el estancamiento sin perder la motivación.",
+      "Únete a nuestro reto semanal de 2 semanas totalmente gratis desde nuestra app.",
+    cta: "Participa ahora gratis",
     href: "/#retos",
   },
 ];
@@ -31,61 +38,52 @@ export function ServiciosSection() {
   return (
     <section
       id="servicios"
-      className="relative overflow-hidden py-16 md:py-24"
-      style={{
-        background:
-          "linear-gradient(180deg, #fff5f4 0%, #fdf8f8 35%, #ffffff 100%)",
-      }}
+      className="relative bg-gradient-to-b from-[#f6f1f5] to-white py-16 md:py-24"
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_80%_100%_at_50%_0%,rgba(176,83,76,0.12),transparent)]"
-        aria-hidden
-      />
-
-      <div className="relative mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
         <SectionHeading
-          align="center"
+          align="left"
+          className="max-w-[900px]"
           title="Servicios online personalizados"
           subtitle={
             <>
-              Programas adaptados a tu nivel, tu tiempo y tus objetivos —
-              entrenamiento y nutrición sin humo.
+              <span className="block">Descubre todas las ventajas de mis programas online</span>
+              <span className="block">adaptados a todo tipo de objetivos.</span>
             </>
           }
         />
 
-        <div className="mt-14 grid gap-7 md:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-[1260px] gap-7 md:grid-cols-2 lg:grid-cols-3">
           {SERVICIOS.map((service) => (
             <article
               key={service.title}
-              className="flex flex-col gap-4 rounded-[1.75rem] border border-black/[0.04] bg-white p-7 shadow-[0_4px_24px_rgba(0,0,0,0.06)] md:p-8"
+              className="flex min-h-[243px] flex-col gap-3 rounded-[30px] bg-white p-[30px] shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
             >
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand/10 ring-2 ring-brand/15">
+              <div className="flex items-center gap-3">
+                <div className="relative flex h-[60px] w-[74px] shrink-0 items-center justify-center overflow-hidden">
                   <Image
                     src="/assets/landing/iconos-servicios.png"
                     alt=""
-                    width={48}
-                    height={44}
+                    width={78}
+                    height={60}
                     className="object-contain"
                   />
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold text-brand-text md:text-xl">
+                <div className="min-w-0">
+                  <h3 className="text-[19px] font-semibold tracking-[0.19px] text-black">
                     {service.title}
                   </h3>
-                  <p className="mt-1 text-sm font-semibold text-brand">
+                  <p className="text-[18px] font-semibold tracking-[0.18px] text-brand">
                     {service.badge}
                   </p>
                 </div>
               </div>
-
-              <p className="flex-1 text-center text-sm leading-relaxed text-brand-text-muted md:text-[15px]">
+              <div className="flex-1 text-[14px] leading-normal tracking-[0.14px] text-black">
                 {service.description}
-              </p>
-
-              <CtaButton href={service.href} className="mt-2 w-full rounded-full">
-                <span className="font-semibold">Más información</span>
+              </div>
+              <CtaButton href={service.href} className="mt-auto w-full">
+                <span className="font-bold">{service.cta}</span>
+                <span className="ml-1">→</span>
               </CtaButton>
             </article>
           ))}

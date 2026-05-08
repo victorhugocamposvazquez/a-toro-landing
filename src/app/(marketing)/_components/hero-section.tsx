@@ -3,103 +3,97 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa]">
-      {/* Halos rosa / terracota */}
-      <div
-        className="pointer-events-none absolute -right-24 top-8 h-[min(90vw,520px)] w-[min(90vw,520px)] rounded-full bg-[color-mix(in_srgb,var(--brand)_18%,transparent)] blur-[100px]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute left-[10%] top-1/2 h-[380px] w-[380px] -translate-y-1/2 rounded-full bg-[color-mix(in_srgb,var(--brand)_12%,transparent)] blur-[90px]"
-        aria-hidden
-      />
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/assets/landing/bg-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-[1440px] px-6 pt-10 pb-20 md:px-16 md:pt-14 md:pb-28 lg:px-24">
-        <div className="grid items-start gap-12 lg:grid-cols-[1fr_minmax(320px,480px)] lg:gap-16">
-          <div className="max-w-[640px]">
-            <h1 className="text-[2.25rem] font-bold leading-[1.1] tracking-tight text-brand-text md:text-[3.25rem] lg:text-[3.75rem]">
+      <div className="mx-auto max-w-[1440px] px-6 pb-20 pt-8 md:px-16 md:pb-28 md:pt-10 lg:px-24 xl:pl-[97px] xl:pr-[80px]">
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_min(561px,44vw)] lg:gap-8">
+          <div className="max-w-[min(100%,780px)]">
+            <h1 className="text-[40px] font-semibold leading-normal tracking-[0.6px] text-[#383737] md:text-[52px] lg:text-[60px]">
               Consigue tu objetivo
             </h1>
-            <p className="mt-2 text-[1.75rem] font-semibold leading-tight text-brand-text md:text-[2.35rem] lg:text-[2.85rem]">
+            <h2 className="mt-1 text-[32px] font-medium leading-normal tracking-[0.5px] text-[#383737] md:text-[44px] lg:text-[50px]">
               Transforma tu cuerpo y tu vida
-            </p>
-            <p className="mt-5 max-w-[540px] text-base leading-relaxed text-brand-text-muted md:text-lg">
-              Consigue lo que siempre has deseado, de forma clara y transparente.
-              Entrenamiento y nutrición adaptados a tu vida real.
-            </p>
+            </h2>
+            <div className="mt-5 text-[18px] font-normal leading-normal tracking-[0.24px] text-[#383737] md:text-[22px] lg:text-[24px]">
+              <p>Consigue lo que siempre has deseado, de forma clara y transparente,</p>
+              <p>sin perder el tiempo, entrenamientos y nutrición para tu forma de vida.</p>
+            </div>
 
-            <div className="mt-8 max-w-[580px] rounded-3xl border border-white/70 bg-white/55 p-6 shadow-[0_8px_40px_rgba(0,0,0,0.08)] backdrop-blur-xl md:p-8">
-              <p className="text-lg font-semibold text-brand-text md:text-xl">
-                Planes personalizados y seguimiento real
+            <div className="mt-8 max-w-[670px] rounded-[20px] bg-[#f5f3f2] p-6 shadow-[0_2px_17px_rgba(0,0,0,0.16)] md:p-[30px]">
+              <p className="text-[18px] font-semibold leading-normal tracking-[0.21px] text-[#1b1b1b] md:text-[21px]">
+                Únete a la mejor APP de entrenos dirigidos.{" "}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-brand-text-muted md:text-base">
-                Elige tu camino: app, retos y asesoría con la misma exigencia y
-                claridad que en el gimnasio.
-              </p>
-
-              <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <div className="mt-2 text-[16px] font-normal tracking-[0.19px] text-[#383737] md:text-[19px]">
+                <p>Descubre las bases reales de entrenamientos dirigidos, explicaciones</p>
+                <p>al detalle y la nutrición sin humo ni falsas promesas.</p>
+              </div>
+              <div className="mt-7 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-[25px]">
                 <Link
-                  href="/#servicios"
-                  className="inline-flex items-center justify-center rounded-full bg-brand px-8 py-3.5 text-base font-semibold text-white shadow-md transition-colors hover:bg-brand/92"
+                  href="/#app"
+                  className="inline-flex items-center justify-center rounded-[40px] bg-brand px-10 py-5 text-[20px] font-normal tracking-[0.22px] text-white hover:bg-brand/90 md:text-[22px]"
                 >
-                  ¡Empieza ahora mismo!
+                  ¡ Pruébala totalmente gratis !{" "}
                 </Link>
-                <div className="flex items-center gap-3">
+                <div className="flex w-[203px] flex-col gap-[7px]">
                   <Image
                     src="/assets/landing/estrellas.svg"
                     alt=""
-                    width={120}
-                    height={18}
-                    className="h-4 w-auto md:h-[18px]"
+                    width={152}
+                    height={23}
+                    className="h-[23px] w-[152px]"
                   />
-                  <p className="text-sm font-medium text-[#273766] md:text-base">
-                    4.9/5 <span className="text-brand-text-muted">(1000+ reseñas)</span>
+                  <p className="text-[17px] font-normal tracking-[0.19px] text-[#273766] md:text-[19px]">
+                    + 200 personas la usan
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Foto + vídeo flotante */}
-          <div className="relative mx-auto w-full max-w-[440px] pb-28 lg:mx-0 lg:max-w-none lg:justify-self-end lg:pb-0">
-            <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[min(100%,420px)] w-[min(100%,420px)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[color-mix(in_srgb,var(--brand)_20%,transparent)] blur-[80px]"
-              aria-hidden
+          <div className="relative mx-auto w-full max-w-[561px] pb-40 sm:pb-48 lg:mx-0 lg:mt-[60px] lg:pb-8">
+            <Image
+              src="/assets/landing/abraham-portada.png"
+              alt="Abraham Toro"
+              width={561}
+              height={574}
+              priority
+              sizes="(min-width: 1024px) 561px, 100vw"
+              className="relative z-[1] h-auto w-full"
             />
-            <div className="relative">
-              <Image
-                src="/assets/landing/abraham-portada.png"
-                alt="Abraham Toro"
-                width={561}
-                height={574}
-                priority
-                className="relative z-[1] w-full rounded-3xl object-cover shadow-2xl"
-              />
-              <Link
-                href="/#app"
-                aria-label="Ver vídeo de presentación"
-                className="absolute -bottom-4 -right-2 z-[2] w-[min(100%,320px)] overflow-hidden rounded-[2rem] border-[5px] border-white shadow-xl sm:-right-4 md:bottom-6 md:w-[360px]"
-              >
-                <span className="relative block aspect-[401/290] w-full">
+            <Link
+              href="/#app"
+              aria-label="Ver vídeo de presentación"
+              className="absolute bottom-0 left-1/2 z-[2] w-[calc(100%-2rem)] max-w-[401px] -translate-x-1/2 overflow-hidden rounded-[40px] border-[6px] border-white shadow-xl sm:left-auto sm:right-[2%] sm:translate-x-0 md:rounded-[50px] lg:-bottom-6 lg:right-[-32px] lg:w-[401px]"
+            >
+              <span className="relative block aspect-[401/290] w-full lg:h-[290px]">
+                <Image
+                  src="/assets/landing/video-portatil.png"
+                  alt=""
+                  fill
+                  sizes="401px"
+                  className="object-cover"
+                />
+                <span className="absolute inset-0 flex items-center justify-center">
                   <Image
-                    src="/assets/landing/video-portatil.png"
+                    src="/assets/landing/icono-play.svg"
                     alt=""
-                    fill
-                    sizes="360px"
-                    className="object-cover"
+                    width={125}
+                    height={95}
+                    className="h-[76px] w-auto md:h-[95px]"
                   />
-                  <span className="absolute inset-0 flex items-center justify-center bg-black/10">
-                    <Image
-                      src="/assets/landing/icono-play.svg"
-                      alt=""
-                      width={100}
-                      height={76}
-                      className="h-16 w-auto drop-shadow-md md:h-[76px]"
-                    />
-                  </span>
                 </span>
-              </Link>
-            </div>
+              </span>
+            </Link>
           </div>
         </div>
       </div>

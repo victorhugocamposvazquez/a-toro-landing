@@ -2,53 +2,61 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function SiteFooter() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-black/[0.06] bg-[#fafafa]">
-      <div className="mx-auto max-w-[1440px] px-6 py-12 md:px-16 lg:px-24">
-        <div className="flex flex-col items-center gap-10">
+    <footer className="relative overflow-hidden bg-white">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center px-6 py-12 md:px-16 lg:px-24">
+        <div className="mb-10 flex justify-center">
           <Image
             src="/assets/landing/social-media-icons.svg"
-            alt="Redes sociales"
+            alt=""
             width={276}
             height={72}
-            className="h-auto w-auto max-w-[240px]"
+            className="h-auto w-auto max-h-[72px]"
           />
+        </div>
 
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-brand-text-muted">
-            <Link href="/sobre" className="transition hover:text-brand">
+        <div className="flex w-full flex-col gap-10 md:flex-row md:justify-between md:gap-8">
+          <nav className="flex flex-wrap justify-center gap-3 md:justify-start md:gap-[10px]">
+            <Link
+              href="/sobre"
+              className="text-[14px] tracking-[0.14px] text-black hover:text-brand"
+            >
               Sobre Abraham Toro
             </Link>
-            <Link href="/legal/terminos" className="transition hover:text-brand">
-              Términos y condiciones
-            </Link>
-            <Link href="/legal/privacidad" className="transition hover:text-brand">
-              Política de privacidad
-            </Link>
-            <Link href="/faq" className="transition hover:text-brand">
+            <Dot />
+            <Link
+              href="/faq"
+              className="text-[14px] tracking-[0.14px] text-black hover:text-brand"
+            >
               Preguntas frecuentes
+            </Link>
+            <Dot />
+            <Link
+              href="/legal/privacidad"
+              className="text-[14px] tracking-[0.14px] text-black hover:text-brand"
+            >
+              Privacidad
             </Link>
           </nav>
 
-          <p className="text-center text-sm text-brand-text-muted">
-            ¿ Eres una <span className="font-semibold text-brand-text">empresa</span>,{" "}
-            <span className="font-semibold text-brand-text">marca</span> u{" "}
-            <span className="font-semibold text-brand-text">organización</span>?
-            Escríbenos a{" "}
-            <a
-              href="mailto:info@abrahamtoro.com"
-              className="font-medium text-brand underline-offset-4 hover:underline"
-            >
-              info@abrahamtoro.com
-            </a>
-          </p>
-
-          <p className="text-center text-xs text-brand-text-muted/90">
-            © {year} Abraham Toro. Todos los derechos reservados.
+          <p className="max-w-xl text-center text-[14px] tracking-[0.14px] text-black md:text-right">
+            <span className="font-bold text-brand">Coloboraciones:</span>{" "}
+            <span>¿ Eres una </span>
+            <span className="font-semibold">empresa</span>
+            <span>, </span>
+            <span className="font-semibold">marca</span>
+            <span> o </span>
+            <span className="font-semibold">entrenador</span>
+            <span> ?</span>
           </p>
         </div>
       </div>
     </footer>
+  );
+}
+
+function Dot() {
+  return (
+    <span className="hidden md:inline-flex h-[4px] w-[4px] shrink-0 self-center rounded-full bg-black md:mx-1" />
   );
 }

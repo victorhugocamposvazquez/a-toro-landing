@@ -25,9 +25,9 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle ? (
-        <p className="text-[16px] md:text-[24px] text-brand-text-muted max-w-[1100px] tracking-[0.24px] leading-normal">
+        <div className="max-w-[1100px] text-[16px] leading-normal tracking-[0.24px] text-brand-text-muted md:text-[24px]">
           {subtitle}
-        </p>
+        </div>
       ) : null}
     </div>
   );
