@@ -21,11 +21,11 @@ export function SectionHeading({
         className,
       )}
     >
-      <h2 className="text-[28px] md:text-[40px] font-semibold text-brand-text tracking-tight">
+      <h2 className="text-[28px] md:text-[40px] font-semibold text-brand-text tracking-[0.28px] md:tracking-[0.4px]">
         {title}
       </h2>
       {subtitle ? (
-        <p className="text-[16px] md:text-[24px] text-brand-text-muted max-w-[1100px]">
+        <p className="text-[16px] md:text-[24px] text-brand-text-muted max-w-[1100px] tracking-[0.24px] leading-normal">
           {subtitle}
         </p>
       ) : null}

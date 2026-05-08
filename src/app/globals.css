@@ -57,47 +57,47 @@
 }
 
 :root {
-  /* Marca Abraham Toro */
-  --brand: #b94942;
+  /* Marca Abraham Toro (terracota — captura Figma 2026) */
+  --brand: #b0534c;
   --brand-foreground: #ffffff;
-  --brand-warm: #f5f3f2;
-  --brand-text: #383737;
-  --brand-text-muted: #717171;
+  --brand-warm: #f7f2f1;
+  --brand-text: #1a1a1a;
+  --brand-text-muted: #5c5c5c;
   --brand-dark: #161616;
 
   /* Shadcn tokens (alineados con la marca) */
   --background: #ffffff;
-  --foreground: #383737;
+  --foreground: #1a1a1a;
   --card: #ffffff;
-  --card-foreground: #383737;
+  --card-foreground: #1a1a1a;
   --popover: #ffffff;
-  --popover-foreground: #383737;
-  --primary: #b94942;
+  --popover-foreground: #1a1a1a;
+  --primary: #b0534c;
   --primary-foreground: #ffffff;
-  --secondary: #f5f3f2;
-  --secondary-foreground: #383737;
-  --muted: #f5f3f2;
-  --muted-foreground: #717171;
-  --accent: #f5f3f2;
-  --accent-foreground: #383737;
+  --secondary: #f7f2f1;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f5f5f5;
+  --muted-foreground: #5c5c5c;
+  --accent: #f7f2f1;
+  --accent-foreground: #1a1a1a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e8e3e1;
-  --input: #e8e3e1;
-  --ring: #b94942;
-  --chart-1: #b94942;
-  --chart-2: #d97a73;
+  --border: #ece8e6;
+  --input: #ece8e6;
+  --ring: #b0534c;
+  --chart-1: #b0534c;
+  --chart-2: #c97872;
   --chart-3: #717171;
   --chart-4: #383737;
   --chart-5: #161616;
   --radius: 0.625rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #383737;
-  --sidebar-primary: #b94942;
+  --sidebar-primary: #b0534c;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f5f3f2;
-  --sidebar-accent-foreground: #383737;
-  --sidebar-border: #e8e3e1;
-  --sidebar-ring: #b94942;
+  --sidebar-accent: #f7f2f1;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #ece8e6;
+  --sidebar-ring: #b0534c;
 }
 
 .dark {
@@ -107,7 +107,7 @@
   --card-foreground: #f5f3f2;
   --popover: #1f1f1f;
   --popover-foreground: #f5f3f2;
-  --primary: #b94942;
+  --primary: #b0534c;
   --primary-foreground: #ffffff;
   --secondary: #2a2a2a;
   --secondary-foreground: #f5f3f2;
@@ -118,20 +118,20 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #b94942;
-  --chart-1: #b94942;
-  --chart-2: #d97a73;
+  --ring: #b0534c;
+  --chart-1: #b0534c;
+  --chart-2: #c97872;
   --chart-3: #a8a8a8;
   --chart-4: #f5f3f2;
   --chart-5: #ffffff;
   --sidebar: #1f1f1f;
   --sidebar-foreground: #f5f3f2;
-  --sidebar-primary: #b94942;
+  --sidebar-primary: #b0534c;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #2a2a2a;
   --sidebar-accent-foreground: #f5f3f2;
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: #b94942;
+  --sidebar-ring: #b0534c;
 }
 
 @layer base {

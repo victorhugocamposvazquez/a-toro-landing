@@ -1,34 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { CtaButton } from "./cta-button";
 import { SectionHeading } from "./section-heading";
 
 const RETOS = [
   {
-    title: "Abdominales en casa con Almohadas",
-    badge: "Reto de 7 días de abdominales",
-    description: "Fortalece tus abdominales en casa con una almohada siguiendo mi reto de 7 días.",
+    title: "Reto PURE Core",
+    description: "Core fuerte en 14 días con progresiones claras y sin equipo caro.",
     image: "/assets/landing/reto-abdominales.png",
     href: "/retos/abdominales",
   },
   {
     title: "Reto Rompepiernas",
-    badge: "Reto de 2 semanas para tener estas piernas",
-    description: "Consigue unas piernas fuertes y estilizadas en el reto rompepiernas del gimnasio de 20 días.",
+    description: "Piernas más potentes combinando sala y trabajo de estabilidad.",
     image: "/assets/landing/reto-rompepiernas.png",
     href: "/retos/rompepiernas",
   },
   {
-    title: "Reto Culo grande",
-    badge: "Reto de 10 días para conseguir un culo grande.",
-    description: "Sigue mi reto de glúteos para fortalecer el culo en tan solo 10 días.",
+    title: "Reto Glúteo PRO",
+    description: "Volumen y firmeza en bloques cortos para marcar antes y después.",
     image: "/assets/landing/reto-culo.png",
     href: "/retos/culo-grande",
   },
   {
-    title: "Reto biceps de popelle",
-    badge: "Reto de 4 semanas para conseguir los mejores biceps",
-    description: "Si quieres tener bíceps grandes, sígueme en este reto y conviértete en popelle.",
+    title: "Reto Brazos AT",
+    description: "Brazos definidos priorizando técnica, volumen y recuperación.",
     image: "/assets/landing/reto-biceps.png",
     href: "/retos/biceps",
   },
@@ -36,53 +33,61 @@ const RETOS = [
 
 export function RetosSection() {
   return (
-    <section id="retos" className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-[1440px] px-6 md:px-24">
+    <section
+      id="retos"
+      className="relative overflow-hidden bg-[#f7f7f7] py-16 md:py-24"
+    >
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-[radial-gradient(ellipse_90%_100%_at_70%_100%,rgba(176,83,76,0.08),transparent)]"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
         <SectionHeading
+          align="center"
           title="Retos disponibles para cambiar tu físico"
-          subtitle="Usa mis retos para conseguir objetivos concretos, para personas que necesiten metas concretas."
+          subtitle="Metas concretas cuando necesitas foco máximo durante unas semanas."
         />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {RETOS.map((reto) => (
             <article
               key={reto.title}
-              className="bg-white rounded-[30px] p-6 md:p-7 flex gap-5 items-center shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
+              className="flex gap-5 overflow-hidden rounded-[1.75rem] border border-black/[0.05] bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.06)] md:gap-6 md:p-6"
             >
-              <div className="relative w-32 md:w-[198px] aspect-[198/153] shrink-0 rounded-2xl overflow-hidden">
+              <div className="relative aspect-[198/153] w-[38%] min-w-[132px] max-w-[200px] shrink-0 overflow-hidden rounded-2xl md:w-[210px]">
                 <Image
                   src={reto.image}
                   alt={reto.title}
                   fill
-                  sizes="(min-width: 768px) 198px, 128px"
+                  sizes="200px"
                   className="object-cover"
                 />
               </div>
 
-              <div className="flex flex-col gap-3 flex-1 min-w-0">
+              <div className="flex min-w-0 flex-1 flex-col justify-center gap-3 py-1">
                 <div>
-                  <h3 className="text-[15px] md:text-[16px] font-semibold text-black">
+                  <h3 className="text-[16px] font-bold leading-snug text-brand-text md:text-lg">
                     {reto.title}
                   </h3>
-                  <p className="text-[13px] md:text-[14px] font-medium text-brand">
-                    {reto.badge}
+                  <p className="mt-2 text-sm leading-relaxed text-brand-text-muted">
+                    {reto.description}
                   </p>
                 </div>
-                <p className="text-[12px] text-black">
-                  {reto.description}
-                </p>
-                <CtaButton href={reto.href} size="sm" className="self-start">
-                  <span className="font-bold">Empieza ahora gratis</span>
-                  <span className="ml-2">→</span>
-                </CtaButton>
+                <Link
+                  href={reto.href}
+                  className="text-sm font-bold text-brand hover:underline"
+                >
+                  Ver más información →
+                </Link>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <CtaButton href="/retos" variant="dark" size="sm">
-            <span className="font-bold">Ver todos mis retos 💪</span>
+        <div className="mt-12 flex justify-center">
+          <CtaButton href="/retos" variant="dark" className="rounded-full px-8 py-3">
+            <span className="font-semibold">Ver todos los retos</span>
           </CtaButton>
         </div>
       </div>
