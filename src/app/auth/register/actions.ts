@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 
 import { createClient } from "@/lib/supabase/server";
+import { getPublicSiteUrl } from "@/lib/public-site-url";
 
 const schema = z
   .object({
@@ -36,8 +37,7 @@ export async function registerAction(
   }
 
   const supabase = await createClient();
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = getPublicSiteUrl();
 
   const { error } = await supabase.auth.signUp({
     email: parsed.data.email,

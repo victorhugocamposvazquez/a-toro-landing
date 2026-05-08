@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 
+import { getMetadataBase } from "@/lib/public-site-url";
 import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
@@ -12,9 +13,7 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: getMetadataBase(),
   title: {
     default: "Abraham Toro — Entrenador personal",
     template: "%s · Abraham Toro",

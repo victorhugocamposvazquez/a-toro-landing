@@ -7,11 +7,20 @@ const ADMIN_PREFIX = "/admin";
 const CLIENT_PREFIX = "/app";
 const AUTH_PREFIX = "/auth";
 
+function hasSupabaseEnv(): boolean {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  return Boolean(url && key && /^https?:\/\//i.test(url));
+}
+
 /**
  * Refreshes the Supabase auth session on every request and gates routes by role.
  *
  * Called from the root `proxy.ts` (Next.js 16). Do not name this file `middleware.ts`:
  * Next.js/Turbopack reserves that filename for the framework boundary.
+ *
+ * Sin variables de Supabase en Vercel, se deja pasar la petición para no tumbar
+ * toda la web con 500. El login seguirá sin funcionar hasta configurar el proyecto.
  *
  * Rules:
  *  - /admin/*  → requires authenticated user with role = "admin"
@@ -20,6 +29,19 @@ const AUTH_PREFIX = "/auth";
  *  - everything else (marketing) → public
  */
 export async function updateSession(request: NextRequest) {
+  if (!hasSupabaseEnv()) {
+    return NextResponse.next({ request });
+  }
+
+  try {
+    return await runSessionAndGates(request);
+  } catch (err) {
+    console.error("[proxy-session] Supabase session error:", err);
+    return NextResponse.next({ request });
+  }
+}
+
+async function runSessionAndGates(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient<Database>(
@@ -43,7 +65,6 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  // IMPORTANT: getUser() refreshes the session and revalidates the JWT.
   const {
     data: { user },
   } = await supabase.auth.getUser();

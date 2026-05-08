@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import { isStripeEnabled, stripe } from "@/lib/stripe/server";
+import { getPublicSiteUrl } from "@/lib/public-site-url";
 
 type CreateCheckoutInput = {
   priceId: string;
@@ -31,8 +32,7 @@ export async function createCheckoutSession({
     redirect("/auth/login?next=/app");
   }
 
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = getPublicSiteUrl();
 
   const session = await stripe.checkout.sessions.create({
     mode,
