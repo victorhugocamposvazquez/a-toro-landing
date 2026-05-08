@@ -3,15 +3,36 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+    <section className="relative isolate overflow-hidden bg-white">
+      {/* Fondo del hero — réplica del frame Figma 6099:213 (Background) */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <Image
           src="/assets/landing/bg-hero.png"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top"
+          /* En Figma la imagen va h:140.04% / top:-20.09% — replico ese encuadre */
+          style={{
+            objectFit: "cover",
+            objectPosition: "right top",
+            transform: "scaleY(1.4) translateY(-7.15%)",
+            transformOrigin: "top right",
+          }}
+        />
+        {/* Fade a blanco hacia la izquierda para que el copy se lea como en el diseño */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.92) 28%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.15) 80%, rgba(255,255,255,0) 100%)",
+          }}
+        />
+        {/* Suavizado inferior para empalmar con la siguiente sección sin línea dura */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-white"
         />
       </div>
 
