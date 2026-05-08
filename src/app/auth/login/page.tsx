@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { LoginForm } from "@/app/(auth)/login/login-form";
+import { LoginForm } from "./login-form";
 
 type LoginPageProps = {
   searchParams: Promise<{ next?: string; error?: string }>;

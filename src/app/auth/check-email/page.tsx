@@ -10,8 +10,8 @@ export default function CheckEmailPage() {
         Revisa tu correo
       </h1>
       <p className="text-sm text-muted-foreground">
-        Te hemos enviado un enlace de confirmación. Ábrelo desde tu bandeja
-        de entrada para activar tu cuenta.
+        Te hemos enviado un enlace de confirmación. Ábrelo desde tu bandeja de
+        entrada para activar tu cuenta.
       </p>
       <Link
         href="/auth/login"

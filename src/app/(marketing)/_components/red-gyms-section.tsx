@@ -56,7 +56,7 @@ export function RedGymsSection() {
               <p className="text-[12px] text-[#606060] flex-1">
                 {gym.description}
               </p>
-              <CtaButton href={`/#${gym.name.toLowerCase()}`} className="w-full">
+              <CtaButton href="/#gimnasios" className="w-full">
                 <span className="font-bold">Entrenos</span>
                 <span className="ml-2">→</span>
               </CtaButton>
