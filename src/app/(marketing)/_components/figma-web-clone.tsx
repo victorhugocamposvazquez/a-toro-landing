@@ -1,11 +1,14 @@
+"use client";
+
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const A = "/assets/landing";
 
 type Service = {
-  iconClass: string;
+  icon: "dumbbell" | "apple" | "calendar";
   title: string;
   badge: string;
   body: React.ReactNode;
@@ -29,8 +32,8 @@ type Challenge = {
 
 const services: Service[] = [
   {
-    iconClass: "h-[60px] w-[78px] object-contain object-left",
-    title: "Plan de entreamiento",
+    icon: "dumbbell",
+    title: "Plan de entrenamiento",
     badge: "1 semana gratis",
     body: (
       <>
@@ -41,14 +44,14 @@ const services: Service[] = [
     button: "Empieza ahora gratis",
   },
   {
-    iconClass: "h-[60px] w-[64px] object-contain object-center",
+    icon: "apple",
     title: "Guía nutricional",
     badge: "1 semana gratis",
     body: "Aprende a come, cuando y porqué sin, con los mejores planes para conseguir tu objetivo.",
     button: "Empieza ahora gratis",
   },
   {
-    iconClass: "h-[60px] w-[70px] object-contain object-right",
+    icon: "calendar",
     title: "Reto de 2 semanas",
     badge: "Gratis",
     body: "Únete a nuestro reto semanal de 2 semanas totalmente gratis desde nuestra app.",
@@ -130,17 +133,42 @@ const challenges: Challenge[] = [
 ];
 
 export function FigmaWebClone() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const syncScale = () => {
+      setScale(Math.min(1, window.innerWidth / 1440));
+    };
+
+    syncScale();
+    window.addEventListener("resize", syncScale);
+    return () => window.removeEventListener("resize", syncScale);
+  }, []);
+
   return (
     <main className="overflow-x-hidden bg-white">
-      <div className="relative mx-auto h-[4909px] w-[1440px] bg-white text-[#383737]">
-        <Hero />
-        <Services />
-        <Transformations />
-        <AppFitness />
-        <Gyms />
-        <Challenges />
-        <SocialFeed />
-        <Footer />
+      <div
+        className="relative mx-auto overflow-visible"
+        style={{
+          width: 1440 * scale,
+          height: 4909 * scale,
+        }}
+      >
+        <div
+          className="relative h-[4909px] w-[1440px] origin-top-left bg-white text-[#383737]"
+          style={{
+            transform: `scale(${scale})`,
+          }}
+        >
+          <Hero />
+          <Services />
+          <Transformations />
+          <AppFitness />
+          <Gyms />
+          <Challenges />
+          <SocialFeed />
+          <Footer />
+        </div>
       </div>
     </main>
   );
@@ -157,18 +185,18 @@ function Hero() {
         />
       </div>
 
-      <h1 className="absolute left-[97px] top-[137px] text-[60px] font-semibold leading-normal tracking-[0.6px]">
+      <h1 className="absolute left-[94px] top-[154px] text-[60px] font-semibold leading-normal tracking-[0.6px]">
         Consigue tu objetivo
       </h1>
-      <p className="absolute left-[97px] top-[197px] text-[50px] font-medium leading-normal tracking-[0.5px]">
+      <p className="absolute left-[94px] top-[210px] text-[50px] font-medium leading-normal tracking-[0.5px]">
         Transforma tu cuerpo y tu vida
       </p>
-      <div className="absolute left-[97px] top-[287px] text-[24px] leading-normal tracking-[0.24px]">
+      <div className="absolute left-[94px] top-[294px] text-[24px] leading-normal tracking-[0.24px]">
         <p>Consigue lo que siempre has deseado, de forma clara y transparente,</p>
         <p>sin perder el tiempo, entrenamientos y nutrición para tu forma de vida.</p>
       </div>
 
-      <div className="absolute left-[98px] top-[412px] flex flex-col gap-7 overflow-hidden rounded-[20px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+      <div className="absolute left-[96px] top-[414px] flex flex-col gap-7 overflow-hidden rounded-[20px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
         <div className="flex w-[609px] flex-col gap-2">
           <p className="text-[21px] font-semibold leading-normal tracking-[0.21px] text-[#1b1b1b]">
             Únete a la mejor APP de entrenos dirigidos.{" "}
@@ -194,7 +222,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute left-[863px] top-[112px] h-[574px] w-[561px] overflow-hidden">
+      <div className="absolute left-[864px] top-[128px] h-[574px] w-[561px] overflow-hidden">
         <img
           alt="Abraham Toro"
           src={`${A}/abraham-portada.png`}
@@ -237,8 +265,8 @@ function Header() {
 
       <div className="flex items-center gap-[29px]">
         <nav className="flex items-center gap-[22px] whitespace-nowrap text-[20px] leading-normal tracking-[0.2px] text-[#2c2b2d]">
-          <Link href="/#servicios">Entranamientos online</Link>
-          <Link href="/#transformaciones">Trasformaciones</Link>
+          <Link href="/#servicios">Entrenamientos online</Link>
+          <Link href="/#transformaciones">Transformaciones</Link>
           <Link href="/#retos">Retos</Link>
           <Link href="/#app">APP</Link>
           <Link href="/#asesoria">Tu asesoría</Link>
@@ -256,7 +284,10 @@ function Header() {
 
 function Services() {
   return (
-    <section id="servicios" className="absolute left-0 top-[686px] h-[550px] w-[1440px] bg-gradient-to-b from-[#f6f1f5] to-white">
+    <section
+      id="servicios"
+      className="absolute left-0 top-[686px] h-[550px] w-[1440px] bg-gradient-to-b from-[#f6f1f5] to-white"
+    >
       <div className="absolute left-[394px] top-[76px] flex flex-col gap-1 p-2.5">
         <h2 className="text-[40px] font-semibold leading-normal tracking-[0.4px]">
           Servicios online personalizados
@@ -285,7 +316,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     >
       <div className="flex items-center gap-3">
         <div className="relative h-[60px] shrink-0 overflow-hidden">
-          <img alt="" src={`${A}/iconos-servicios.png`} className={service.iconClass} />
+          <ServiceIcon icon={service.icon} />
         </div>
         <div className="flex flex-col gap-0.5 whitespace-nowrap font-semibold leading-normal">
           <h3 className="text-[19px] tracking-[0.19px] text-black">{service.title}</h3>
@@ -303,6 +334,24 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         <span>{`  ->`}</span>
       </Link>
     </article>
+  );
+}
+
+function ServiceIcon({ icon }: { icon: Service["icon"] }) {
+  const position = {
+    calendar: "left-[-12px] top-[-46px]",
+    apple: "left-[-88px] top-[-44px]",
+    dumbbell: "left-[-167px] top-[-44px]",
+  }[icon];
+
+  return (
+    <span className="relative block h-[60px] w-[78px] overflow-hidden">
+      <img
+        alt=""
+        src={`${A}/iconos-servicios.png`}
+        className={`absolute h-[156px] w-[246px] max-w-none ${position}`}
+      />
+    </span>
   );
 }
 
