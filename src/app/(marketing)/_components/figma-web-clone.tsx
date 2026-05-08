@@ -137,7 +137,7 @@ export function FigmaWebClone() {
 
   useEffect(() => {
     const syncScale = () => {
-      setScale(Math.min(1, window.innerWidth / 1440));
+      setScale(Math.min(1, document.documentElement.clientWidth / 1440));
     };
 
     syncScale();
@@ -146,9 +146,10 @@ export function FigmaWebClone() {
   }, []);
 
   return (
-    <main className="overflow-x-hidden bg-white">
+    <main className="relative overflow-x-hidden bg-white">
+      <FullBleedBackgrounds scale={scale} />
       <div
-        className="relative mx-auto overflow-visible"
+        className="relative z-10 mx-auto overflow-visible"
         style={{
           width: 1440 * scale,
           height: 4909 * scale,
@@ -174,9 +175,59 @@ export function FigmaWebClone() {
   );
 }
 
+function FullBleedBackgrounds({ scale }: { scale: number }) {
+  const sectionStyle = (top: number, height: number): React.CSSProperties => ({
+    top: top * scale,
+    height: height * scale,
+  });
+
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-0">
+      <div
+        className="absolute inset-x-0 overflow-hidden"
+        style={sectionStyle(0, 686)}
+      >
+        <img
+          alt=""
+          src={`${A}/bg-hero.png`}
+          className="absolute left-1/2 top-[-20.09%] h-[140.04%] w-full min-w-[1440px] -translate-x-1/2 object-cover"
+        />
+      </div>
+      <div
+        className="absolute inset-x-0 bg-gradient-to-b from-[#f6f1f5] to-white"
+        style={sectionStyle(686, 550)}
+      />
+      <div
+        className="absolute inset-x-0 bg-[#ebebeb]"
+        style={sectionStyle(1240, 599)}
+      />
+      <div
+        className="absolute inset-x-0 bg-white"
+        style={sectionStyle(1839, 621)}
+      />
+      <div
+        className="absolute inset-x-0 bg-[#ebebeb]"
+        style={sectionStyle(2460, 676)}
+      />
+      <div
+        className="absolute inset-x-0 bg-white"
+        style={sectionStyle(3137, 767)}
+      />
+      <div
+        className="absolute inset-x-0"
+        style={{
+          ...sectionStyle(3904, 1005),
+          backgroundImage:
+            "linear-gradient(-0.3856deg, #c9a9a9 0.77048%, #e9e9e9 52.184%, #ffffff 98.459%)",
+        }}
+      />
+    </div>
+  );
+}
+
 function Hero() {
   return (
-    <section className="absolute left-0 top-0 h-[686px] w-[1440px] overflow-visible">
+    <section className="absolute left-0 top-0 z-30 h-[686px] w-[1440px] overflow-visible">
       <div className="absolute left-0 top-0 h-[686px] w-[1441px] overflow-hidden">
         <img
           alt=""
@@ -185,18 +236,18 @@ function Hero() {
         />
       </div>
 
-      <h1 className="absolute left-[94px] top-[154px] text-[60px] font-semibold leading-normal tracking-[0.6px]">
+      <h1 className="absolute left-[97px] top-[137px] text-[60px] font-semibold leading-normal tracking-[0.6px]">
         Consigue tu objetivo
       </h1>
-      <p className="absolute left-[94px] top-[210px] text-[50px] font-medium leading-normal tracking-[0.5px]">
+      <p className="absolute left-[97px] top-[197px] text-[50px] font-medium leading-normal tracking-[0.5px]">
         Transforma tu cuerpo y tu vida
       </p>
-      <div className="absolute left-[94px] top-[294px] text-[24px] leading-normal tracking-[0.24px]">
+      <div className="absolute left-[97px] top-[287px] text-[24px] leading-normal tracking-[0.24px]">
         <p>Consigue lo que siempre has deseado, de forma clara y transparente,</p>
         <p>sin perder el tiempo, entrenamientos y nutrición para tu forma de vida.</p>
       </div>
 
-      <div className="absolute left-[96px] top-[414px] flex flex-col gap-7 overflow-hidden rounded-[20px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+      <div className="absolute left-[98px] top-[412px] flex flex-col gap-7 overflow-hidden rounded-[20px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
         <div className="flex w-[609px] flex-col gap-2">
           <p className="text-[21px] font-semibold leading-normal tracking-[0.21px] text-[#1b1b1b]">
             Únete a la mejor APP de entrenos dirigidos.{" "}
@@ -222,7 +273,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute left-[864px] top-[128px] h-[574px] w-[561px] overflow-hidden">
+      <div className="absolute left-[863px] top-[112px] h-[574px] w-[561px] overflow-hidden">
         <img
           alt="Abraham Toro"
           src={`${A}/abraham-portada.png`}
