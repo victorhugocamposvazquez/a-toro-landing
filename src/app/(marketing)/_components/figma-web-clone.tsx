@@ -398,14 +398,14 @@ function Feature({ index }: { index: number }) {
 
 function FeatureIcon({ index }: { index: number }) {
   const position = [
-    "left-[-15px] top-[-18px]",
-    "left-[-138px] top-[-18px]",
-    "left-[-15px] top-[-98px]",
-    "left-[-138px] top-[-98px]",
+    "left-[-15px] top-[-16px]",
+    "left-[-138px] top-[-16px]",
+    "left-[-15px] top-[-96px]",
+    "left-[-138px] top-[-96px]",
   ][index];
 
   return (
-    <span className="relative flex h-[54px] w-[54px] shrink-0 items-center justify-center overflow-hidden">
+    <span className="relative block h-[46px] w-[49px] shrink-0 overflow-hidden">
       <img
         alt=""
         src={`${A}/icono-feature.png`}
