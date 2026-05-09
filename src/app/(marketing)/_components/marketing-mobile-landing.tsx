@@ -412,7 +412,7 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
             nutrición para tu forma de vida.
           </p>
 
-          <div className="relative mt-8 flex justify-center">
+          <div className="relative flex justify-center">
             <div className="relative w-[min(100%,420px)]">
               <img
                 alt="Abraham Toro"
@@ -447,7 +447,7 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
             </div>
           </div>
 
-          <div className="relative z-10 mt-10 flex flex-col gap-6 overflow-hidden rounded-[22px] bg-[#f5f3f2] p-6 shadow-[0_2px_17px_rgba(0,0,0,0.16)] ring-1 ring-black/5">
+          <div className="relative z-10 flex flex-col gap-6 overflow-hidden rounded-[22px] bg-[#f5f3f2] p-6 shadow-[0_2px_17px_rgba(0,0,0,0.16)] ring-1 ring-black/5">
             <div>
               <p className="text-[1.15rem] font-semibold leading-snug tracking-[0.02em] text-[#1b1b1b]">
                 Únete a la mejor APP de entrenos dirigidos.{" "}
