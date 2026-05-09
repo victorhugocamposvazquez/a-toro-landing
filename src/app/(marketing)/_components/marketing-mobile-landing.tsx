@@ -21,7 +21,7 @@ import {
   LANDING_ASSET_BASE,
   landingAppFeatures,
   landingChallenges,
-  landingFeatureIconOffsets,
+  landingFeatureIconOffsetsMobile,
   landingGyms,
   landingServices,
   type LandingChallenge,
@@ -100,7 +100,7 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             />
           </div>
           <div className="relative mt-10 rounded-[23px] bg-[#f5f3f2] p-6 shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
-            <img alt="" src={`${A}/estrellas.svg`} className="h-[23px] w-[152px]" />
+            <img alt="" loading="lazy" decoding="async" src={`${A}/estrellas.svg`} className="h-[23px] w-[152px]" />
             <p className="mt-6 text-[17px] leading-relaxed tracking-[0.17px] text-[#8b8b8b]">
               “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a
               llevar una vida saludable y sostenida.”
@@ -110,21 +110,31 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             </p>
           </div>
 
-          <Link
-            href="/#app"
-            onClick={() => setMenuOpen(false)}
-            className={cn(
-              "mt-8 box-border flex w-full min-h-[4.25rem] items-center justify-center rounded-3xl bg-brand px-6 py-[1.125rem]",
-              "text-center text-[17px] font-semibold leading-[1.4] tracking-normal text-white antialiased shadow-md",
-              "decoration-transparent",
-            )}
-          >
-            <span className="px-1">{`¡ Comienza la tuya gratis !`}</span>
-          </Link>
+          <div className="mt-8 flex justify-center">
+            <div className="rounded-full bg-[#efefef] p-[11px]">
+              <Link
+                href="/#app"
+                onClick={() => setMenuOpen(false)}
+                className={cn(
+                  "box-border inline-flex min-h-[3.375rem] items-center justify-center rounded-full bg-brand px-8 py-[1.125rem]",
+                  "text-center text-[17px] font-semibold leading-[1.4] tracking-normal text-white antialiased shadow-md",
+                  "decoration-transparent",
+                )}
+              >
+                ¡ Comienza la tuya gratis !
+              </Link>
+            </div>
+          </div>
 
           <div className="mt-10 flex justify-center">
             <div className="relative w-[min(100%,270px)] shrink-0 rounded-[20px] border-[11px] border-white/70 shadow-[0_8px_28px_rgba(0,0,0,0.12)]">
-              <img alt="" src={`${A}/app-mockup.png`} className="block w-full rounded-[12px] object-cover" />
+              <img
+                alt=""
+                loading="lazy"
+                decoding="async"
+                src={`${A}/app-mockup.png`}
+                className="block w-full rounded-[12px] object-cover"
+              />
             </div>
           </div>
         </div>
@@ -143,6 +153,8 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             <div className="relative w-full max-w-[340px]">
               <img
                 alt=""
+                loading="lazy"
+                decoding="async"
                 src={`${A}/moviles-mockup.png`}
                 className="mx-auto h-auto w-[177%] max-w-none -translate-x-[10%]"
               />
@@ -241,6 +253,8 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
           <div className="relative mt-8 overflow-hidden rounded-[20px] border-[7px] border-white/60 shadow-xl">
             <img
               alt=""
+              loading="lazy"
+              decoding="async"
               src={`${A}/soy-abraham-collage.png`}
               className="aspect-[4/5] w-full object-cover sm:aspect-video"
             />
@@ -261,7 +275,13 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
 
       <footer className="border-t border-border/60 bg-white px-5 pb-10 pt-8">
         <div className="mx-auto flex max-w-lg flex-col items-center gap-8">
-          <img alt="" src={`${A}/social-media-icons.svg`} className="h-[72px] w-[276px]" />
+          <img
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src={`${A}/social-media-icons.svg`}
+            className="h-[72px] w-[276px]"
+          />
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[14px] tracking-[0.14px]">
             <Link href="/#contenido" className="text-foreground">
               Sobre Abraham Toro
@@ -300,11 +320,28 @@ function MobileHeader({
       <div className="mx-auto flex h-[4.25rem] max-w-lg items-center justify-between px-4 sm:px-5">
         <Link href="/" className="flex items-center gap-2.5" onClick={onNavigate}>
           <div className="relative h-[52px] w-20 shrink-0">
-            <img alt="AT" src={`${A}/logotipo-at.svg`} className="absolute inset-0 h-full w-full" />
+            <img
+              alt="AT"
+              decoding="async"
+              src={`${A}/logotipo-at.svg`}
+              className="absolute inset-0 h-full w-full"
+            />
           </div>
           <div className="flex items-center gap-2">
-            <img alt="Abraham" src={`${A}/texto-abraham.svg`} className="h-[13px] w-[110px]" />
-            <img alt="Toro" src={`${A}/texto-toro.svg`} className="h-[13px] w-[62px]" />
+            <img
+              alt="Abraham"
+              loading="lazy"
+              decoding="async"
+              src={`${A}/texto-abraham.svg`}
+              className="h-[13px] w-[110px]"
+            />
+            <img
+              alt="Toro"
+              loading="lazy"
+              decoding="async"
+              src={`${A}/texto-toro.svg`}
+              className="h-[13px] w-[62px]"
+            />
           </div>
         </Link>
 
@@ -351,7 +388,13 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
-        <img alt="" src={`${A}/bg-hero.png`} className="h-full w-full scale-110 object-cover object-[center_22%]" />
+        <img
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          src={`${A}/bg-hero.png`}
+          className="h-full w-full scale-110 object-cover object-[center_22%]"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </div>
@@ -373,6 +416,8 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
             <div className="relative w-[min(100%,420px)]">
               <img
                 alt="Abraham Toro"
+                fetchPriority="high"
+                decoding="async"
                 src={`${A}/abraham-portada.png`}
                 className="relative z-10 mx-auto h-auto w-full max-w-[340px] object-contain drop-shadow-2xl"
               />
@@ -383,10 +428,18 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
                 aria-label="Ver vídeo de presentación"
               >
                 <div className="relative overflow-hidden rounded-[28px] border-[5px] border-white shadow-xl">
-                  <img alt="" src={`${A}/video-portatil.png`} className="block w-full object-cover" />
+                  <img
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    src={`${A}/video-portatil.png`}
+                    className="block w-full object-cover"
+                  />
                 </div>
                 <img
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   src={`${A}/icono-play.svg`}
                   className="pointer-events-none absolute left-1/2 top-1/2 h-14 w-[4.5rem] -translate-x-1/2 -translate-y-1/2 drop-shadow-lg sm:h-[4.25rem] sm:w-[5.25rem]"
                 />
@@ -413,7 +466,13 @@ function HeroMobile({ onNavigate }: { onNavigate: () => void }) {
                 ¡ Pruébala totalmente gratis !{" "}
               </Link>
               <div className="flex flex-col items-center gap-2 sm:items-end">
-                <img alt="" src={`${A}/estrellas.svg`} className="h-[23px] w-[152px]" />
+                <img
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  src={`${A}/estrellas.svg`}
+                  className="h-[23px] w-[152px]"
+                />
                 <p className="text-[1rem] tracking-[0.02em] text-[#273766]">+ 200 personas la usan</p>
               </div>
             </div>
@@ -487,7 +546,13 @@ function MobileServiceIcon({ icon }: { icon: LandingService["icon"] }) {
 
   return (
     <span className="relative block h-[60px] w-[78px] overflow-hidden">
-      <img alt="" src={`${A}/iconos-servicios.png`} className={`absolute h-[156px] w-[246px] max-w-none ${position}`} />
+      <img
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src={`${A}/iconos-servicios.png`}
+        className={`absolute h-[156px] w-[246px] max-w-none ${position}`}
+      />
     </span>
   );
 }
@@ -497,7 +562,7 @@ function BeforeAfterBlock({ src, imgClass }: { src: string; imgClass: string }) 
     <div>
       <div className="overflow-hidden rounded-[20px] shadow-md ring-1 ring-black/10">
         <div className="aspect-[311/271] w-full overflow-hidden bg-neutral-200">
-          <img alt="" src={src} className={cn("object-cover", imgClass)} />
+          <img alt="" loading="lazy" decoding="async" src={src} className={cn("object-cover", imgClass)} />
         </div>
       </div>
       <div className="mt-3 flex justify-between px-4 text-[17px] font-medium tracking-[0.02em]">
@@ -509,13 +574,15 @@ function BeforeAfterBlock({ src, imgClass }: { src: string; imgClass: string }) 
 }
 
 function MobileFeature({ feature, index }: { feature: LandingAppFeature; index: number }) {
-  const o = landingFeatureIconOffsets[index]!;
+  const o = landingFeatureIconOffsetsMobile[index]!;
 
   return (
     <div className="flex flex-row items-start gap-4 text-left">
-      <span className="relative mt-1 block size-[68px] shrink-0 overflow-hidden">
+      <span className="relative mt-1 block size-[72px] shrink-0 overflow-hidden">
         <img
           alt=""
+          loading="lazy"
+          decoding="async"
           src={`${A}/icono-feature.png`}
           width={FEATURE_ICON_SPRITE_W}
           height={FEATURE_ICON_SPRITE_H}
@@ -544,6 +611,8 @@ function StoreButton({ type }: { type: "apple" | "google" }) {
     >
       <img
         alt=""
+        loading="lazy"
+        decoding="async"
         src={isApple ? `${A}/apple-mask.png` : `${A}/google-play.png`}
         className={isApple ? "h-[52px] w-[48px] object-contain" : "h-[46px] w-[58px] object-cover"}
       />
@@ -559,9 +628,15 @@ function MobileGymCard({ gym }: { gym: LandingGym }) {
   return (
     <article className="relative flex w-[min(85vw,280px)] shrink-0 snap-center flex-col items-center gap-3 overflow-hidden rounded-[28px] p-6 shadow-[0_2px_8.5px_rgba(0,0,0,0.22)] ring-1 ring-black/5">
       <div className="absolute inset-0 rounded-[28px] bg-white" />
-      <img alt="" src={`${A}/bg-card-gym.png`} className="absolute left-[-2%] top-[28%] h-[72%] w-[104%] max-w-none" />
+      <img
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src={`${A}/bg-card-gym.png`}
+        className="absolute left-[-2%] top-[28%] h-[72%] w-[104%] max-w-none"
+      />
       <div className="relative flex flex-col items-center gap-3">
-        <img alt="" src={gym.logo} className={gym.logoClass} />
+        <img alt="" loading="lazy" decoding="async" src={gym.logo} className={gym.logoClass} />
         <p className="text-center text-[15px] font-semibold tracking-[0.16px]">{gym.title}</p>
         <p className="min-h-[3rem] text-center text-[12px] leading-relaxed tracking-[0.12px] text-[#606060]">
           {gym.body}
@@ -583,6 +658,8 @@ function MobileChallengeCard({ challenge }: { challenge: LandingChallenge }) {
     <article className="flex flex-col gap-4 overflow-hidden rounded-[28px] bg-white p-5 shadow-[0_2px_8.5px_rgba(0,0,0,0.2)] ring-1 ring-black/5 sm:flex-row sm:items-stretch">
       <img
         alt=""
+        loading="lazy"
+        decoding="async"
         src={challenge.image}
         className="aspect-[198/153] w-full shrink-0 rounded-2xl object-cover sm:h-[140px] sm:w-[160px]"
       />

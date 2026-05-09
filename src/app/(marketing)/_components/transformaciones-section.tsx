@@ -49,20 +49,32 @@ export function TransformacionesSection() {
           </div>
 
           <div className="flex flex-col gap-6 sm:flex-row lg:flex-nowrap lg:items-start">
-            <div className="w-full max-w-[309px] rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
-              <Image
-                src="/assets/landing/estrellas.svg"
-                alt=""
-                width={152}
-                height={23}
-                className="h-[23px] w-[152px]"
-              />
-              <p className="mt-6 text-[16px] leading-normal tracking-[0.17px] text-[#8b8b8b] md:text-[17px]">
-                “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
-              </p>
-              <p className="mt-2 text-[19px] font-semibold tracking-[0.21px] text-[#1b1b1b] md:text-[21px]">
-                Natalia López
-              </p>
+            <div className="flex w-full max-w-[309px] shrink-0 flex-col gap-5 sm:max-w-none sm:flex-1 lg:max-w-[309px]">
+              <div className="rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+                <Image
+                  src="/assets/landing/estrellas.svg"
+                  alt=""
+                  width={152}
+                  height={23}
+                  className="h-[23px] w-[152px]"
+                />
+                <p className="mt-6 text-[16px] leading-normal tracking-[0.17px] text-[#8b8b8b] md:text-[17px]">
+                  “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
+                </p>
+                <p className="mt-2 text-[19px] font-semibold tracking-[0.21px] text-[#1b1b1b] md:text-[21px]">
+                  Natalia López
+                </p>
+              </div>
+              <div className="flex justify-center sm:justify-start">
+                <div className="rounded-full bg-[#efefef] p-[11px]">
+                  <CtaButton
+                    href="/#app"
+                    className="rounded-full px-10 py-4 text-[18px] font-semibold shadow-md"
+                  >
+                    ¡ Comienza la tuya gratis !
+                  </CtaButton>
+                </div>
+              </div>
             </div>
 
             <div className="relative mx-auto aspect-[270/378] w-full max-w-[270px] shrink-0 overflow-hidden rounded-[20px] border-[8px] border-white/70 shadow-lg sm:mx-0">
@@ -75,15 +87,6 @@ export function TransformacionesSection() {
               />
             </div>
           </div>
-        </div>
-
-        <div className="mt-10 flex justify-center lg:justify-start lg:pl-[12%] xl:pl-[22%]">
-          <CtaButton
-            href="/#app"
-            className="rounded-[40px] border-[11px] border-[#efefef] px-8 py-3 text-[18px] font-semibold shadow-md backdrop-blur-[42px]"
-          >
-            ¡ Comienza la tuya gratis !
-          </CtaButton>
         </div>
       </div>
     </section>

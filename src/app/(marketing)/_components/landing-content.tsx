@@ -31,16 +31,22 @@ export type LandingAppFeature = {
 };
 
 /**
- * Sprite 2×2 en `/assets/landing/icono-feature.png`.
- * Índices 0–3: TL campana · TR check · BL portapapeles · BR barras (`FeatureIcon`).
- * Coordenadas en px sobre el lienzo interno del sprite (sin transform del padre).
- * El índice 3 coincide con la fila derecha/abajo bien centrada del asset.
+ * Sprite 2×2 en `/assets/landing/icono-feature.png` (240×160).
+ * Índices 0–3: TL campana · TR check · BL portapapeles · BR barras.
+ * Offsets centran cada icono en su cuadrante según el tamaño del recorte (evita recortes).
  */
-export const landingFeatureIconOffsets: readonly { leftPx: number; topPx: number }[] = [
-  { leftPx: -6, topPx: -38 },
-  { leftPx: -118, topPx: -24 },
-  { leftPx: -10, topPx: -76 },
-  { leftPx: -138, topPx: -96 },
+export const landingFeatureIconOffsetsDesktop: readonly { leftPx: number; topPx: number }[] = [
+  { leftPx: -22, topPx: -2 },
+  { leftPx: -142, topPx: -2 },
+  { leftPx: -22, topPx: -82 },
+  { leftPx: -142, topPx: -82 },
+] as const;
+
+export const landingFeatureIconOffsetsMobile: readonly { leftPx: number; topPx: number }[] = [
+  { leftPx: -26, topPx: -6 },
+  { leftPx: -146, topPx: -6 },
+  { leftPx: -26, topPx: -86 },
+  { leftPx: -146, topPx: -86 },
 ] as const;
 
 export const FEATURE_ICON_SPRITE_W = 240;
