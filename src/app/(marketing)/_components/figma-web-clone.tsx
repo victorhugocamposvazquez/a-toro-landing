@@ -156,7 +156,7 @@ export function FigmaWebClone() {
         }}
       >
         <div
-          className="relative h-[4909px] w-[1440px] origin-top-left bg-white text-[#383737]"
+          className="relative h-[4909px] w-[1440px] origin-top-left bg-transparent text-[#383737]"
           style={{
             transform: `scale(${scale})`,
           }}
@@ -190,9 +190,18 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
         <img
           alt=""
           src={`${A}/bg-hero.png`}
-          className="absolute left-1/2 top-[-20.09%] h-[140.04%] w-full min-w-[1440px] -translate-x-1/2 object-cover"
+          className="absolute left-1/2 max-w-none -translate-x-1/2 object-cover"
+          style={{
+            top: -0.2009 * 686 * scale,
+            width: 1441 * scale,
+            height: 686 * 1.4004 * scale,
+          }}
         />
       </div>
+      <div
+        className="absolute inset-x-0 bg-white/70"
+        style={sectionStyle(0, 97)}
+      />
       <div
         className="absolute inset-x-0 bg-gradient-to-b from-[#f6f1f5] to-white"
         style={sectionStyle(686, 550)}
@@ -228,14 +237,6 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
 function Hero() {
   return (
     <section className="absolute left-0 top-0 z-30 h-[686px] w-[1440px] overflow-visible">
-      <div className="absolute left-0 top-0 h-[686px] w-[1441px] overflow-hidden">
-        <img
-          alt=""
-          src={`${A}/bg-hero.png`}
-          className="absolute left-0 top-[-20.09%] h-[140.04%] w-full max-w-none"
-        />
-      </div>
-
       <h1 className="absolute left-[97px] top-[137px] text-[60px] font-semibold leading-normal tracking-[0.6px]">
         Consigue tu objetivo
       </h1>
@@ -337,9 +338,9 @@ function Services() {
   return (
     <section
       id="servicios"
-      className="absolute left-0 top-[686px] h-[550px] w-[1440px] bg-gradient-to-b from-[#f6f1f5] to-white"
+      className="absolute left-0 top-[686px] h-[550px] w-[1440px]"
     >
-      <div className="absolute left-[394px] top-[76px] flex flex-col gap-1 p-2.5">
+      <div className="absolute left-[82px] top-[76px] flex flex-col gap-1 p-2.5">
         <h2 className="text-[40px] font-semibold leading-normal tracking-[0.4px]">
           Servicios online personalizados
         </h2>
@@ -408,9 +409,9 @@ function ServiceIcon({ icon }: { icon: Service["icon"] }) {
 
 function Transformations() {
   return (
-    <section id="transformaciones" className="absolute left-0 top-[1240px] h-[599px] w-[1440px] bg-[#ebebeb]">
+    <section id="transformaciones" className="absolute left-0 top-[1240px] h-[599px] w-[1440px]">
       <TitleBlock
-        className="left-[477px] top-[36px] items-start"
+        className="left-[82px] top-[36px] items-start"
         title="Increíbles transformaciones"
         subtitle="Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app."
         subtitleClassName="w-[764px]"
@@ -452,7 +453,7 @@ function Transformations() {
 
 function AppFitness() {
   return (
-    <section id="app" className="absolute left-[-10px] top-[1839px] h-[656px] w-[1440px] bg-white">
+    <section id="app" className="absolute left-[-10px] top-[1839px] h-[656px] w-[1440px]">
       <TitleBlock
         className="left-[374px] top-[33px] items-center"
         title={<><span className="font-bold text-brand">App fitness:</span><span> tu progreso, en tus manos</span></>}
@@ -467,7 +468,7 @@ function AppFitness() {
         <div className="flex items-center gap-[19px]">
           {[0, 1, 2, 3].map((index) => (
             <div key={index} className="flex items-center gap-[19px]">
-              <Feature />
+              <Feature index={index} />
               {index < 3 ? <Divider /> : null}
             </div>
           ))}
@@ -481,11 +482,11 @@ function AppFitness() {
   );
 }
 
-function Feature() {
+function Feature({ index }: { index: number }) {
   return (
     <div className="flex w-[174px] flex-col items-center gap-3 rounded-[30px]">
       <div className="flex flex-col items-center gap-1.5">
-        <img alt="" src={`${A}/icono-feature.png`} className="h-[45px] w-[46px] object-contain" />
+        <FeatureIcon index={index} />
         <p className="whitespace-nowrap text-[16px] font-semibold tracking-[0.16px] text-black">
           Seguimiento del progreso
         </p>
@@ -494,6 +495,25 @@ function Feature() {
         Sigue tu proceso de cambio semanal a semana y previsualiza los resultados obtenidos.{" "}
       </p>
     </div>
+  );
+}
+
+function FeatureIcon({ index }: { index: number }) {
+  const position = [
+    "left-[-15px] top-[-16px]",
+    "left-[-138px] top-[-16px]",
+    "left-[-15px] top-[-96px]",
+    "left-[-138px] top-[-96px]",
+  ][index];
+
+  return (
+    <span className="relative block h-[46px] w-[49px] overflow-hidden">
+      <img
+        alt=""
+        src={`${A}/icono-feature.png`}
+        className={`absolute h-[160px] w-[240px] max-w-none ${position}`}
+      />
+    </span>
   );
 }
 
@@ -527,7 +547,7 @@ function StoreButton({ type }: { type: "apple" | "google" }) {
 
 function Gyms() {
   return (
-    <section id="gimnasios" className="absolute left-0 top-[2460px] h-[676px] w-[1440px] bg-[#ebebeb]">
+    <section id="gimnasios" className="absolute left-0 top-[2460px] h-[676px] w-[1440px]">
       <TitleBlock
         className="left-[276px] top-[36px] items-center"
         title="Entrenos en los mejores Gimnasios de España"
@@ -580,7 +600,7 @@ function GymCard({ gym }: { gym: Gym }) {
 
 function Challenges() {
   return (
-    <section id="retos" className="absolute left-0 top-[3137px] h-[676px] w-[1440px] bg-white">
+    <section id="retos" className="absolute left-0 top-[3137px] h-[676px] w-[1440px]">
       <TitleBlock
         className="left-[307px] top-[36px] items-center"
         title="Retos disponibles para cambiar tu físico"
@@ -629,7 +649,7 @@ function ChallengeCard({ challenge }: { challenge: Challenge }) {
 
 function SocialFeed() {
   return (
-    <section id="contenido" className="absolute left-0 top-[3904px] h-[1005px] w-[1440px]" style={{ backgroundImage: "linear-gradient(-0.3856deg, #c9a9a9 0.77048%, #e9e9e9 52.184%, #ffffff 98.459%)" }}>
+    <section id="contenido" className="absolute left-0 top-[3904px] h-[1005px] w-[1440px]">
       <div className="absolute left-[360px] top-4 flex flex-col items-center gap-1 p-2.5">
         <h2 className="text-[40px] font-semibold tracking-[0.4px]">
           <span>Soy </span>
