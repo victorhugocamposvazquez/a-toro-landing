@@ -16,9 +16,12 @@ import {
 import { cn } from "@/lib/utils";
 
 import {
+  FEATURE_ICON_SPRITE_H,
+  FEATURE_ICON_SPRITE_W,
   LANDING_ASSET_BASE,
   landingAppFeatures,
   landingChallenges,
+  landingFeatureIconOffsets,
   landingGyms,
   landingServices,
   type LandingChallenge,
@@ -110,9 +113,13 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
           <Link
             href="/#app"
             onClick={() => setMenuOpen(false)}
-            className="mt-8 block w-full rounded-2xl bg-brand px-5 py-4 text-center text-[16px] font-semibold leading-normal tracking-wide text-white shadow-md [text-wrap:balance]"
+            className={cn(
+              "mt-8 box-border flex w-full min-h-[4.25rem] items-center justify-center rounded-3xl bg-brand px-6 py-[1.125rem]",
+              "text-center text-[17px] font-semibold leading-[1.4] tracking-normal text-white antialiased shadow-md",
+              "decoration-transparent",
+            )}
           >
-            ¡ Comienza la tuya gratis !
+            <span className="px-1">{`¡ Comienza la tuya gratis !`}</span>
           </Link>
 
           <div className="mt-10 flex justify-center">
@@ -502,19 +509,21 @@ function BeforeAfterBlock({ src, imgClass }: { src: string; imgClass: string }) 
 }
 
 function MobileFeature({ feature, index }: { feature: LandingAppFeature; index: number }) {
-  const position = [
-    "left-[-15px] top-[-16px]",
-    "left-[-138px] top-[-16px]",
-    "left-[-15px] top-[-96px]",
-    "left-[-138px] top-[-96px]",
-  ][index];
+  const o = landingFeatureIconOffsets[index]!;
 
   return (
     <div className="flex flex-row items-start gap-4 text-left">
-      <span className="relative mt-0.5 block h-[46px] w-[49px] shrink-0 overflow-hidden">
-        <img alt="" src={`${A}/icono-feature.png`} className={`absolute h-[160px] w-[240px] max-w-none ${position}`} />
+      <span className="relative mt-1 block size-[68px] shrink-0 overflow-hidden">
+        <img
+          alt=""
+          src={`${A}/icono-feature.png`}
+          width={FEATURE_ICON_SPRITE_W}
+          height={FEATURE_ICON_SPRITE_H}
+          className="pointer-events-none absolute h-[160px] w-[240px] max-w-none select-none"
+          style={{ left: `${o.leftPx}px`, top: `${o.topPx}px` }}
+        />
       </span>
-      <div className="min-w-0 flex-1 pt-0.5">
+      <div className="min-w-0 flex-1 pt-1">
         <p className="text-[16px] font-semibold leading-snug tracking-[0.16px] text-black">{feature.title}</p>
         <p className="mt-2 text-[14px] leading-relaxed tracking-[0.12px] text-black/80">{feature.body}</p>
       </div>

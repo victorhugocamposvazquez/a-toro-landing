@@ -30,7 +30,21 @@ export type LandingAppFeature = {
   body: string;
 };
 
-/** Orden igual que el sprite `icono-feature.png` en desktop/móvil: campana, check, clipboard, estadísticas */
+/**
+ * Sprite 2×2 en `/assets/landing/icono-feature.png`.
+ * Índices 0–3: TL campana · TR check · BL portapapeles · BR barras (`FeatureIcon`).
+ * Coordenadas en px sobre el lienzo interno del sprite (sin transform del padre).
+ * El índice 3 coincide con la fila derecha/abajo bien centrada del asset.
+ */
+export const landingFeatureIconOffsets: readonly { leftPx: number; topPx: number }[] = [
+  { leftPx: -6, topPx: -38 },
+  { leftPx: -118, topPx: -24 },
+  { leftPx: -10, topPx: -76 },
+  { leftPx: -138, topPx: -96 },
+] as const;
+
+export const FEATURE_ICON_SPRITE_W = 240;
+export const FEATURE_ICON_SPRITE_H = 160;
 export const landingAppFeatures: LandingAppFeature[] = [
   {
     title: "Avisos y constancia",

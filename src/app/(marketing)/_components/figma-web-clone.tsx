@@ -6,9 +6,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import {
+  FEATURE_ICON_SPRITE_H,
+  FEATURE_ICON_SPRITE_W,
   LANDING_ASSET_BASE as A,
   landingAppFeatures,
   landingChallenges as challenges,
+  landingFeatureIconOffsets,
   landingGyms as gyms,
   landingServices as services,
   type LandingChallenge as Challenge,
@@ -397,19 +400,17 @@ function Feature({ index }: { index: number }) {
 }
 
 function FeatureIcon({ index }: { index: number }) {
-  const position = [
-    "left-[-15px] top-[-16px]",
-    "left-[-138px] top-[-16px]",
-    "left-[-15px] top-[-96px]",
-    "left-[-138px] top-[-96px]",
-  ][index];
+  const o = landingFeatureIconOffsets[index]!;
 
   return (
     <span className="relative block h-[46px] w-[49px] shrink-0 overflow-hidden">
       <img
         alt=""
         src={`${A}/icono-feature.png`}
-        className={`absolute h-[160px] w-[240px] max-w-none ${position}`}
+        width={FEATURE_ICON_SPRITE_W}
+        height={FEATURE_ICON_SPRITE_H}
+        className="pointer-events-none absolute h-[160px] w-[240px] max-w-none"
+        style={{ left: `${o.leftPx}px`, top: `${o.topPx}px` }}
       />
     </span>
   );
