@@ -4,7 +4,7 @@
 
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import {
   Sheet,
@@ -182,11 +182,7 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             title="Entrenos en los mejores Gimnasios de España"
             subtitle="Descubre mis rutinas en los gimnasios que visito podrás ver los entrenos creados por Abraham Toro."
           />
-          <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 ps-5 pe-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {landingGyms.map((gym) => (
-              <MobileGymCard key={gym.title} gym={gym} />
-            ))}
-          </div>
+          <MobileGymsCarousel />
           <div
             id="asesoria"
             className="scroll-mt-[4.5rem] mt-12 flex flex-col items-center gap-5 rounded-[30px] bg-[#161616] px-5 py-7 text-center shadow-[0_2px_8.5px_rgba(0,0,0,0.25)]"
@@ -621,6 +617,80 @@ function StoreButton({ type }: { type: "apple" | "google" }) {
         <span className="text-[16px] font-bold tracking-[0.18px]">{isApple ? "Apple" : "Google Play"}</span>
       </span>
     </Link>
+  );
+}
+
+function MobileGymsCarousel() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const count = landingGyms.length;
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const sync = () => {
+      if (el.children.length === 0) return;
+      const first = el.children[0] as HTMLElement;
+      const stride =
+        el.children.length > 1
+          ? (el.children[1] as HTMLElement).offsetLeft - first.offsetLeft
+          : first.offsetWidth;
+      if (stride <= 0) return;
+      const idx = Math.round(el.scrollLeft / stride);
+      setActiveIndex(Math.min(Math.max(0, idx), count - 1));
+    };
+
+    sync();
+    el.addEventListener("scroll", sync, { passive: true });
+    const ro = new ResizeObserver(sync);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", sync);
+      ro.disconnect();
+    };
+  }, [count]);
+
+  const scrollToIndex = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el || !el.children[i]) return;
+    const first = el.children[0] as HTMLElement;
+    const stride =
+      el.children.length > 1
+        ? (el.children[1] as HTMLElement).offsetLeft - first.offsetLeft
+        : first.offsetWidth;
+    el.scrollTo({ left: stride * i, behavior: "smooth" });
+  };
+
+  return (
+    <div className="mt-14">
+      <div
+        ref={scrollerRef}
+        className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 ps-5 pe-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {landingGyms.map((gym) => (
+          <MobileGymCard key={gym.title} gym={gym} />
+        ))}
+      </div>
+      <nav
+        className="mt-6 flex items-center justify-center gap-3 px-2"
+        aria-label="Saltar entre gimnasios"
+      >
+        {landingGyms.map((gym, i) => (
+          <button
+            key={gym.title}
+            type="button"
+            aria-label={`Ir a tarjeta: ${gym.title}`}
+            aria-current={activeIndex === i ? "true" : undefined}
+            onClick={() => scrollToIndex(i)}
+            className={cn(
+              "h-2 min-h-[8px] min-w-[8px] rounded-full transition-[width,opacity,background-color] duration-300",
+              activeIndex === i ? "w-10 shrink-0 bg-brand" : "w-9 shrink-0 bg-[#b8b8b8]",
+            )}
+          />
+        ))}
+      </nav>
+    </div>
   );
 }
 
