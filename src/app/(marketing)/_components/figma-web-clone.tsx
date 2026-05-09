@@ -84,11 +84,11 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
         <img
           alt=""
           src={`${A}/bg-hero.png`}
-          className="absolute left-1/2 max-w-none -translate-x-1/2 object-cover"
+          className="pointer-events-none absolute left-0 max-w-none object-cover"
           style={{
-            top: -0.2009 * 686 * scale,
-            width: 1441 * scale,
-            height: 686 * 1.4004 * scale,
+            top: `${-20.09}%`,
+            width: "100%",
+            height: `${140.04}%`,
           }}
         />
       </div>
@@ -198,7 +198,8 @@ function Hero() {
 
 function Header() {
   return (
-    <header className="absolute left-1/2 top-0 flex w-[1440px] -translate-x-1/2 items-center justify-between bg-white/70 px-[96px] py-[17px]">
+    <header className="absolute left-1/2 top-0 z-40 w-screen max-w-none -translate-x-1/2 backdrop-blur-sm backdrop-saturate-150">
+      <div className="mx-auto flex h-full max-w-[1440px] items-center justify-between px-[96px] py-[17px]">
       <Link href="/" className="flex items-center gap-3">
         <div className="relative h-[63px] w-[97px]">
           <img alt="AT" src={`${A}/logotipo-at.svg`} className="absolute inset-0 h-full w-full" />
@@ -223,6 +224,7 @@ function Header() {
         >
           ¡ Transfórmate !
         </Link>
+      </div>
       </div>
     </header>
   );
