@@ -352,16 +352,16 @@ function Transformations() {
       <Label left={454} top={510} muted>Antes</Label>
       <Label left={600} top={510}>Después</Label>
 
-      {/* Bloque derecho primero para capas; la foto cubre parte de la valoración */}
+      {/* Foto detrás por z-index alto; centro vertical ≈ centro del stack valoración + CTA */}
       <ImageCrop
         src={`${A}/app-mockup.png`}
-        className="left-[998px] top-[154px] z-20 h-[462px] w-[286px] rounded-[20px] border-[11px] border-white/70 shadow-[0_14px_40px_rgba(0,0,0,0.18)]"
+        className="left-[1004px] top-[152px] z-20 h-[456px] w-[302px] rounded-[22px] border-[11px] border-white/80 shadow-[0_18px_48px_rgba(0,0,0,0.2)]"
         imgClassName="h-[107.16%] w-[100.1%] left-0 top-[-7.16%]"
       />
 
-      <div className="absolute left-[718px] top-[210px] z-10 flex w-[298px] flex-col items-start gap-5">
-        <div className="w-[272px] translate-x-[92px] rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
-          <div className="flex w-full max-w-[249px] flex-col gap-[25px]">
+      <div className="absolute left-[698px] top-[188px] z-10 flex w-[318px] flex-col items-start gap-4">
+        <div className="w-[276px] translate-x-[104px] rounded-[24px] bg-white p-[30px] shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
+          <div className="flex w-full max-w-[252px] flex-col gap-[22px]">
             <img
               alt=""
               loading="lazy"
@@ -369,7 +369,7 @@ function Transformations() {
               src={`${A}/estrellas.svg`}
               className="h-[23px] w-[152px]"
             />
-            <div className="flex w-full max-w-[239px] flex-col gap-2 leading-normal">
+            <div className="flex w-full max-w-[240px] flex-col gap-2 leading-normal">
               <p className="text-[17px] tracking-[0.17px] text-[#8b8b8b]">
                 “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
               </p>
@@ -379,7 +379,7 @@ function Transformations() {
             </div>
           </div>
         </div>
-        <div className="flex w-[272px] translate-x-[8px] justify-center">
+        <div className="flex w-[278px] translate-x-[14px] justify-center">
           <div className="rounded-full bg-[#efefef] p-[11px]">
             <Link
               href="/#app"

@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading";
 export function TransformacionesSection() {
   return (
     <section id="transformaciones" className="bg-[#ebebeb] py-16 md:py-24">
-      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-16 lg:px-24 xl:max-w-[1520px] xl:px-12 2xl:px-16">
         <SectionHeading
           align="left"
           title="Increíbles transformaciones"
@@ -48,23 +48,23 @@ export function TransformacionesSection() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-14 flex max-w-xl flex-col gap-10 lg:-mt-2 lg:flex-row lg:items-center lg:justify-end lg:gap-0 xl:max-w-none">
-            {/* z-[2]: la foto dibuja encima donde se solapa con la valoración */}
-            <div className="relative z-[2] order-2 w-full max-w-[290px] self-center lg:order-2 lg:-ml-[4.75rem] lg:mr-8 lg:w-[338px] lg:max-w-[338px] lg:shrink-0 lg:self-center xl:-ml-[5.5rem]">
-              <div className="relative aspect-[294/478] overflow-hidden rounded-[22px] border-[10px] border-white/80 shadow-[0_18px_45px_rgba(0,0,0,0.18)] lg:shadow-[0_22px_50px_rgba(0,0,0,0.2)]">
+          <div className="relative mx-auto mt-14 flex max-w-xl flex-col gap-10 lg:-mt-2 lg:flex-row lg:items-center lg:justify-end lg:gap-0 xl:max-w-[1100px] 2xl:max-w-none">
+            {/* z-[2]: foto encima donde roza la valoración; altura proporcional al mockup desktop */}
+            <div className="relative z-[2] order-2 w-full max-w-[290px] self-center lg:order-2 lg:-ml-[5.25rem] lg:mr-6 lg:w-[min(348px,calc((100vw-6rem)*0.42))] lg:max-w-[348px] lg:shrink-0 lg:self-center xl:-ml-[5.75rem]">
+              <div className="relative aspect-[302/466] overflow-hidden rounded-[22px] border-[10px] border-white/85 shadow-[0_20px_52px_rgba(0,0,0,0.2)] lg:shadow-[0_24px_56px_rgba(0,0,0,0.22)]">
                 <Image
                   src="/assets/landing/app-mockup.png"
                   alt=""
                   fill
-                  sizes="(max-width: 1024px) 290px, 338px"
+                  sizes="(max-width: 1024px) 290px, 348px"
                   className="object-cover object-top"
                 />
               </div>
             </div>
 
             {/* z-[1]: valoración ligeramente bajo la foto en el área que se cruza */}
-            <div className="relative z-[1] order-1 flex w-full max-w-[309px] flex-col gap-5 self-center lg:order-1 lg:max-w-[320px] lg:translate-x-6 lg:self-center xl:translate-x-11">
-              <div className="rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+            <div className="relative z-[1] order-1 flex w-full max-w-[309px] flex-col gap-4 self-center lg:order-1 lg:max-w-[328px] lg:translate-x-7 lg:self-center xl:translate-x-12">
+              <div className="rounded-[24px] bg-white p-[30px] shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
                 <Image
                   src="/assets/landing/estrellas.svg"
                   alt=""
