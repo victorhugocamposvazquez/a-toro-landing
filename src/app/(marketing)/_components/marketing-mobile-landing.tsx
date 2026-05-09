@@ -21,7 +21,7 @@ import {
   LANDING_ASSET_BASE,
   landingAppFeatures,
   landingChallenges,
-  landingFeatureIconOffsetsMobile,
+  landingFeatureIconOffsetsDesktop,
   landingGyms,
   landingServices,
   type LandingChallenge,
@@ -149,24 +149,24 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
           <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
             Accede a la herramienta que te acompañará en cada entrenamiento
           </p>
-          <div className="mt-8 flex justify-center">
-            <div className="relative w-full max-w-[340px]">
+          <div className="mt-10 flex justify-center">
+            <div className="relative w-full max-w-[340px] overflow-x-clip overflow-y-visible py-2">
               <img
                 alt=""
                 loading="lazy"
                 decoding="async"
                 src={`${A}/moviles-mockup.png`}
-                className="mx-auto h-auto w-[177%] max-w-none -translate-x-[10%]"
+                className="relative left-1/2 block h-auto w-[118%] max-w-none -translate-x-1/2"
               />
             </div>
           </div>
-          <div className="mt-6 rounded-[30px] border border-border bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.08)]">
+          <div className="mt-10 rounded-[30px] border border-border bg-white px-6 py-7 shadow-[0_6px_24px_rgba(0,0,0,0.08)]">
             <div className="flex flex-col gap-8">
               {landingAppFeatures.map((feature, index) => (
                 <MobileFeature key={feature.title} feature={feature} index={index} />
               ))}
             </div>
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-14 flex flex-col gap-3">
               <StoreButton type="apple" />
               <StoreButton type="google" />
             </div>
@@ -182,7 +182,7 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             title="Entrenos en los mejores Gimnasios de España"
             subtitle="Descubre mis rutinas en los gimnasios que visito podrás ver los entrenos creados por Abraham Toro."
           />
-          <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 ps-5 pe-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 ps-5 pe-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {landingGyms.map((gym) => (
               <MobileGymCard key={gym.title} gym={gym} />
             ))}
@@ -217,14 +217,14 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             title="Retos disponibles para cambiar tu físico"
             subtitle="Usa mis retos para conseguir objetivos concretos, para personas que necesiten metas concretas."
           />
-          <div className="mt-10 flex flex-col gap-5">
+          <div className="mt-14 flex flex-col gap-5">
             {landingChallenges.map((challenge) => (
               <MobileChallengeCard key={challenge.title} challenge={challenge} />
             ))}
           </div>
           <Link
             href="/retos"
-            className="mt-10 flex w-full items-center justify-center rounded-[10px] bg-[#161616] px-6 py-3.5 text-[14px] font-bold tracking-[0.14px] text-white"
+            className="mt-14 flex w-full items-center justify-center rounded-[10px] bg-[#161616] px-6 py-3.5 text-[14px] font-bold tracking-[0.14px] text-white"
           >
             Ver todos mis retos 💪
           </Link>
@@ -574,11 +574,11 @@ function BeforeAfterBlock({ src, imgClass }: { src: string; imgClass: string }) 
 }
 
 function MobileFeature({ feature, index }: { feature: LandingAppFeature; index: number }) {
-  const o = landingFeatureIconOffsetsMobile[index]!;
+  const o = landingFeatureIconOffsetsDesktop[index]!;
 
   return (
-    <div className="flex flex-row items-start gap-4 text-left">
-      <span className="relative mt-1 block size-[72px] shrink-0 overflow-hidden">
+    <div className="flex flex-row items-center gap-4 ps-2 text-left">
+      <span className="relative block h-[76px] w-[76px] shrink-0 overflow-hidden">
         <img
           alt=""
           loading="lazy"
@@ -590,7 +590,7 @@ function MobileFeature({ feature, index }: { feature: LandingAppFeature; index: 
           style={{ left: `${o.leftPx}px`, top: `${o.topPx}px` }}
         />
       </span>
-      <div className="min-w-0 flex-1 pt-1">
+      <div className="min-w-0 flex-1">
         <p className="text-[16px] font-semibold leading-snug tracking-[0.16px] text-black">{feature.title}</p>
         <p className="mt-2 text-[14px] leading-relaxed tracking-[0.12px] text-black/80">{feature.body}</p>
       </div>

@@ -42,13 +42,6 @@ export const landingFeatureIconOffsetsDesktop: readonly { leftPx: number; topPx:
   { leftPx: -142, topPx: -82 },
 ] as const;
 
-export const landingFeatureIconOffsetsMobile: readonly { leftPx: number; topPx: number }[] = [
-  { leftPx: -26, topPx: -6 },
-  { leftPx: -146, topPx: -6 },
-  { leftPx: -26, topPx: -86 },
-  { leftPx: -146, topPx: -86 },
-] as const;
-
 export const FEATURE_ICON_SPRITE_W = 240;
 export const FEATURE_ICON_SPRITE_H = 160;
 export const landingAppFeatures: LandingAppFeature[] = [
