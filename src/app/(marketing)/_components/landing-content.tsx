@@ -25,6 +25,31 @@ export type LandingChallenge = {
   href: string;
 };
 
+export type LandingAppFeature = {
+  title: string;
+  body: string;
+};
+
+/** Orden igual que el sprite `icono-feature.png` en desktop/móvil: campana, check, clipboard, estadísticas */
+export const landingAppFeatures: LandingAppFeature[] = [
+  {
+    title: "Avisos y constancia",
+    body: "Recordatorios que te mantienen al día con entrenos y hábitos alineados a tu plan.",
+  },
+  {
+    title: "Metas marcadas cumplidas",
+    body: "Marca cada sesión y comprueba día a día el avance hacia tu objetivo.",
+  },
+  {
+    title: "Planes ordenados día a día",
+    body: "Rutinas y guías claras para saber en cada momento qué toca entrenar.",
+  },
+  {
+    title: "Seguimiento del progreso",
+    body: "Visualiza cómo cambias semana a semana y anticipa tus resultados.",
+  },
+];
+
 export const landingServices: LandingService[] = [
   {
     icon: "dumbbell",

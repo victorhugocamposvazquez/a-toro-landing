@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import {
   LANDING_ASSET_BASE as A,
+  landingAppFeatures,
   landingChallenges as challenges,
   landingGyms as gyms,
   landingServices as services,
@@ -379,16 +380,17 @@ function AppFitness() {
 }
 
 function Feature({ index }: { index: number }) {
+  const feature = landingAppFeatures[index]!;
   return (
     <div className="flex w-[174px] flex-col items-center gap-3 rounded-[30px]">
       <div className="flex flex-col items-center gap-1.5">
         <FeatureIcon index={index} />
-        <p className="whitespace-nowrap text-[16px] font-semibold tracking-[0.16px] text-black">
-          Seguimiento del progreso
+        <p className="text-center text-[15px] font-semibold leading-snug tracking-[0.16px] text-black">
+          {feature.title}
         </p>
       </div>
-      <p className="h-[51px] text-center text-[12px] leading-normal tracking-[0.12px] text-black">
-        Sigue tu proceso de cambio semanal a semana y previsualiza los resultados obtenidos.{" "}
+      <p className="min-h-[51px] text-center text-[12px] leading-normal tracking-[0.12px] text-black">
+        {feature.body}
       </p>
     </div>
   );
@@ -396,14 +398,14 @@ function Feature({ index }: { index: number }) {
 
 function FeatureIcon({ index }: { index: number }) {
   const position = [
-    "left-[-15px] top-[-16px]",
-    "left-[-138px] top-[-16px]",
-    "left-[-15px] top-[-96px]",
-    "left-[-138px] top-[-96px]",
+    "left-[-15px] top-[-18px]",
+    "left-[-138px] top-[-18px]",
+    "left-[-15px] top-[-98px]",
+    "left-[-138px] top-[-98px]",
   ][index];
 
   return (
-    <span className="relative block h-[46px] w-[49px] overflow-hidden">
+    <span className="relative flex h-[54px] w-[54px] shrink-0 items-center justify-center overflow-hidden">
       <img
         alt=""
         src={`${A}/icono-feature.png`}

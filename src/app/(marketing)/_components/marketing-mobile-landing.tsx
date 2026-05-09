@@ -17,11 +17,13 @@ import { cn } from "@/lib/utils";
 
 import {
   LANDING_ASSET_BASE,
+  landingAppFeatures,
   landingChallenges,
   landingGyms,
   landingServices,
   type LandingChallenge,
   type LandingGym,
+  type LandingAppFeature,
   type LandingService,
 } from "./landing-content";
 
@@ -77,9 +79,9 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
 
       <section
         id="transformaciones"
-        className="scroll-mt-[4.5rem] bg-[#ebebeb] px-5 py-14"
+        className="scroll-mt-[4.5rem] overflow-visible bg-[#ebebeb] px-5 py-14 pb-20"
       >
-        <div className="mx-auto max-w-lg">
+        <div className="relative z-0 mx-auto max-w-lg overflow-visible">
           <SectionHeading
             title="Increíbles transformaciones"
             subtitle="Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app."
@@ -94,7 +96,7 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
               imgClass="h-[100%] w-[129%] max-w-none -translate-x-[19%]"
             />
           </div>
-          <div className="mt-10 rounded-[23px] bg-[#f5f3f2] p-6 shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+          <div className="relative z-10 mt-10 rounded-[23px] bg-[#f5f3f2] p-6 pb-7 shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
             <img alt="" src={`${A}/estrellas.svg`} className="h-[23px] w-[152px]" />
             <p className="mt-6 text-[17px] leading-relaxed tracking-[0.17px] text-[#8b8b8b]">
               “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a
@@ -102,23 +104,25 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             </p>
             <p className="mt-4 text-[21px] font-semibold tracking-[0.21px] text-[#1b1b1b]">Natalia López</p>
           </div>
-          <div className="mt-8 flex justify-center">
-            <div className="relative w-[min(100%,270px)] rounded-[20px] border-[11px] border-white/70 shadow-[0_8px_28px_rgba(0,0,0,0.12)]">
-              <img alt="" src={`${A}/app-mockup.png`} className="w-full rounded-[12px] object-cover" />
+          <div className="relative z-10 mt-10 flex justify-center pb-2">
+            <div className="relative w-[min(100%,270px)] shrink-0 rounded-[20px] border-[11px] border-white/70 shadow-[0_8px_28px_rgba(0,0,0,0.12)]">
+              <img alt="" src={`${A}/app-mockup.png`} className="block w-full rounded-[12px] object-cover" />
             </div>
           </div>
-          <Link
-            href="/#app"
-            onClick={() => setMenuOpen(false)}
-            className="mt-10 flex w-full items-center justify-center rounded-full border-[11px] border-[#efefef] bg-brand px-6 py-4 text-center text-[17px] font-semibold tracking-[0.18px] text-white backdrop-blur-[42px]"
-          >
-            ¡ Comienza la tuya gratis !
-          </Link>
+          <div className="relative z-20 mt-10 isolate">
+            <Link
+              href="/#app"
+              onClick={() => setMenuOpen(false)}
+              className="relative flex min-h-[3.25rem] w-full items-center justify-center rounded-full border-[3px] border-[#ece8e8] bg-brand px-5 py-4 text-center text-[17px] font-semibold tracking-[0.18px] text-white shadow-[0_10px_28px_rgba(185,73,66,0.35)] outline-offset-4"
+            >
+              ¡ Comienza la tuya gratis !
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section id="app" className="scroll-mt-[4.5rem] bg-white px-5 py-14">
-        <div className="mx-auto max-w-lg text-center">
+      <section id="app" className="scroll-mt-[4.5rem] overflow-visible bg-white px-5 py-14 pb-16">
+        <div className="relative mx-auto max-w-lg overflow-visible text-center">
           <h2 className="text-[1.65rem] font-semibold leading-snug tracking-[0.02em]">
             <span className="font-bold text-brand">App fitness:</span>
             <span> tu progreso, en tus manos</span>
@@ -127,7 +131,7 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
             Accede a la herramienta que te acompañará en cada entrenamiento
           </p>
           <div className="mt-8 flex justify-center">
-            <div className="relative w-full max-w-[340px] overflow-hidden">
+            <div className="relative w-full max-w-[340px] overflow-hidden rounded-b-3xl">
               <img
                 alt=""
                 src={`${A}/moviles-mockup.png`}
@@ -135,13 +139,13 @@ export function MarketingMobileLanding({ className }: { className?: string }) {
               />
             </div>
           </div>
-          <div className="mt-4 rounded-[30px] bg-white p-5 shadow-[9px_6px_8.5px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
-            <div className="grid grid-cols-2 gap-4">
-              {[0, 1, 2, 3].map((index) => (
-                <MobileFeature key={index} index={index} />
+          <div className="relative mt-6 overflow-visible rounded-[30px] bg-white p-5 pt-6 shadow-[9px_6px_8.5px_rgba(0,0,0,0.12)] ring-1 ring-black/5">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {landingAppFeatures.map((feature, index) => (
+                <MobileFeature key={feature.title} feature={feature} index={index} />
               ))}
             </div>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex shrink-0 flex-col gap-3">
               <StoreButton type="apple" />
               <StoreButton type="google" />
             </div>
@@ -495,24 +499,22 @@ function BeforeAfterBlock({ src, imgClass }: { src: string; imgClass: string }) 
   );
 }
 
-function MobileFeature({ index }: { index: number }) {
+function MobileFeature({ feature, index }: { feature: LandingAppFeature; index: number }) {
   const position = [
-    "left-[-15px] top-[-16px]",
-    "left-[-138px] top-[-16px]",
-    "left-[-15px] top-[-96px]",
-    "left-[-138px] top-[-96px]",
+    "left-[-15px] top-[-18px]",
+    "left-[-138px] top-[-18px]",
+    "left-[-15px] top-[-98px]",
+    "left-[-138px] top-[-98px]",
   ][index];
 
   return (
-    <div className="flex flex-col items-center gap-2 rounded-[24px] bg-secondary/60 px-2 py-4 text-center ring-1 ring-black/5">
-      <span className="relative block h-[46px] w-[49px] overflow-hidden">
+    <div className="flex flex-col items-center gap-3 rounded-[24px] bg-secondary/60 px-3 py-5 text-center ring-1 ring-black/5">
+      <span className="relative flex h-[56px] w-[56px] shrink-0 items-center justify-center overflow-hidden">
         <img alt="" src={`${A}/icono-feature.png`} className={`absolute h-[160px] w-[240px] max-w-none ${position}`} />
       </span>
-      <p className="text-[14px] font-semibold leading-tight tracking-[0.16px] text-black">
-        Seguimiento del progreso
-      </p>
-      <p className="text-[11px] leading-snug tracking-[0.12px] text-black/85">
-        Sigue tu proceso de cambio semanal a semana y previsualiza los resultados obtenidos.{" "}
+      <p className="text-[15px] font-semibold leading-snug tracking-[0.16px] text-black">{feature.title}</p>
+      <p className="max-w-[18rem] text-[12px] leading-relaxed tracking-[0.12px] text-black/85 sm:max-w-none">
+        {feature.body}
       </p>
     </div>
   );
@@ -526,8 +528,7 @@ function StoreButton({ type }: { type: "apple" | "google" }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex flex-1 items-center justify-center gap-4 rounded-[10px] bg-black px-4 py-3.5 text-white sm:min-w-[240px]",
-        isApple ? "sm:flex-initial" : "",
+        "inline-flex min-h-[4.75rem] w-full shrink-0 items-center justify-center gap-4 rounded-[10px] bg-black px-4 py-3.5 text-white shadow-sm",
       )}
     >
       <img
