@@ -352,42 +352,47 @@ function Transformations() {
       <Label left={454} top={510} muted>Antes</Label>
       <Label left={600} top={510}>Después</Label>
 
-      {/* Foto detrás por z-index alto; centro vertical ≈ centro del stack valoración + CTA */}
-      <ImageCrop
-        src={`${A}/app-mockup.png`}
-        className="left-[1004px] top-[152px] z-20 h-[456px] w-[302px] rounded-[22px] border-[11px] border-white/80 shadow-[0_18px_48px_rgba(0,0,0,0.2)]"
-        imgClassName="h-[107.16%] w-[100.1%] left-0 top-[-7.16%]"
-      />
-
-      <div className="absolute left-[698px] top-[188px] z-10 flex w-[318px] flex-col items-start gap-4">
-        <div className="w-[276px] translate-x-[104px] rounded-[24px] bg-white p-[30px] shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
-          <div className="flex w-full max-w-[252px] flex-col gap-[22px]">
-            <img
-              alt=""
-              loading="lazy"
-              decoding="async"
-              src={`${A}/estrellas.svg`}
-              className="h-[23px] w-[152px]"
-            />
-            <div className="flex w-full max-w-[240px] flex-col gap-2 leading-normal">
-              <p className="text-[17px] tracking-[0.17px] text-[#8b8b8b]">
-                “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
-              </p>
-              <p className="text-[21px] font-semibold tracking-[0.21px] text-[#1b1b1b]">
-                Natalia López
-              </p>
+      {/* Misma línea superior que antes/después (top 204); foto estira a la altura del stack y queda encima en el solapo */}
+      <div className="absolute left-[716px] top-[204px] flex flex-row items-stretch gap-0">
+        <div className="relative z-10 flex w-[278px] shrink-0 flex-col gap-4">
+          <div className="w-[276px] rounded-[24px] bg-white p-[30px] shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
+            <div className="flex w-full max-w-[252px] flex-col gap-[22px]">
+              <img
+                alt=""
+                loading="lazy"
+                decoding="async"
+                src={`${A}/estrellas.svg`}
+                className="h-[23px] w-[152px]"
+              />
+              <div className="flex w-full max-w-[240px] flex-col gap-2 leading-normal">
+                <p className="text-[17px] tracking-[0.17px] text-[#8b8b8b]">
+                  “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
+                </p>
+                <p className="text-[21px] font-semibold tracking-[0.21px] text-[#1b1b1b]">
+                  Natalia López
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex w-[276px] justify-center">
+            <div className="rounded-full bg-[#efefef] p-[11px]">
+              <Link
+                href="/#app"
+                className="inline-flex h-[50px] min-w-[236px] items-center justify-center rounded-full bg-brand px-8 text-[18px] font-semibold tracking-[0.18px] text-white"
+              >
+                ¡ Comienza la tuya gratis !
+              </Link>
             </div>
           </div>
         </div>
-        <div className="flex w-[278px] translate-x-[14px] justify-center">
-          <div className="rounded-full bg-[#efefef] p-[11px]">
-            <Link
-              href="/#app"
-              className="inline-flex h-[50px] min-w-[236px] items-center justify-center rounded-full bg-brand px-8 text-[18px] font-semibold tracking-[0.18px] text-white"
-            >
-              ¡ Comienza la tuya gratis !
-            </Link>
-          </div>
+        <div className="relative z-20 -ml-[80px] min-h-0 w-[302px] shrink-0 overflow-hidden rounded-[22px] border-[11px] border-white/80 shadow-[0_18px_48px_rgba(0,0,0,0.2)]">
+          <img
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src={`${A}/app-mockup.png`}
+            className="pointer-events-none h-full w-full select-none object-cover object-top"
+          />
         </div>
       </div>
     </section>
