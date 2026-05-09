@@ -44,11 +44,11 @@ export function FigmaDesktopClone() {
         className="relative z-10 mx-auto overflow-visible"
         style={{
           width: 1440 * scale,
-          height: 4909 * scale,
+          height: 4962 * scale,
         }}
       >
         <div
-          className="relative h-[4909px] w-[1440px] origin-top-left bg-transparent text-[#383737]"
+          className="relative h-[4962px] w-[1440px] origin-top-left bg-transparent text-[#383737]"
           style={{
             transform: `scale(${scale})`,
           }}
@@ -102,24 +102,24 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
       />
       <div
         className="absolute inset-x-0 bg-[#ebebeb]"
-        style={sectionStyle(1240, 599)}
+        style={sectionStyle(1240, 652)}
       />
       <div
         className="absolute inset-x-0 bg-white"
-        style={sectionStyle(1839, 621)}
+        style={sectionStyle(1892, 621)}
       />
       <div
         className="absolute inset-x-0 bg-[#ebebeb]"
-        style={sectionStyle(2460, 676)}
+        style={sectionStyle(2513, 676)}
       />
       <div
         className="absolute inset-x-0 bg-white"
-        style={sectionStyle(3137, 767)}
+        style={sectionStyle(3190, 767)}
       />
       <div
         className="absolute inset-x-0"
         style={{
-          ...sectionStyle(3904, 1005),
+          ...sectionStyle(3957, 1005),
           backgroundImage:
             "linear-gradient(-0.3856deg, #c9a9a9 0.77048%, #e9e9e9 52.184%, #ffffff 98.459%)",
         }}
@@ -336,7 +336,7 @@ function ServiceIcon({ icon }: { icon: Service["icon"] }) {
 
 function Transformations() {
   return (
-    <section id="transformaciones" className="absolute left-0 top-[1240px] h-[599px] w-[1440px]">
+    <section id="transformaciones" className="absolute left-0 top-[1240px] h-[652px] w-[1440px]">
       <TitleBlock
         className="left-[82px] top-[36px] items-start"
         title="Increíbles transformaciones"
@@ -352,8 +352,15 @@ function Transformations() {
       <Label left={454} top={510} muted>Antes</Label>
       <Label left={600} top={510}>Después</Label>
 
-      <div className="absolute left-[768px] top-[210px] flex w-[272px] flex-col items-stretch gap-5">
-        <div className="rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
+      {/* Bloque derecho primero para capas; la foto cubre parte de la valoración */}
+      <ImageCrop
+        src={`${A}/app-mockup.png`}
+        className="left-[998px] top-[154px] z-20 h-[462px] w-[286px] rounded-[20px] border-[11px] border-white/70 shadow-[0_14px_40px_rgba(0,0,0,0.18)]"
+        imgClassName="h-[107.16%] w-[100.1%] left-0 top-[-7.16%]"
+      />
+
+      <div className="absolute left-[718px] top-[210px] z-10 flex w-[298px] flex-col items-start gap-5">
+        <div className="w-[272px] translate-x-[92px] rounded-[23px] bg-[#f5f3f2] p-[30px] shadow-[0_2px_17px_rgba(0,0,0,0.16)]">
           <div className="flex w-full max-w-[249px] flex-col gap-[25px]">
             <img
               alt=""
@@ -372,7 +379,7 @@ function Transformations() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex w-[272px] translate-x-[8px] justify-center">
           <div className="rounded-full bg-[#efefef] p-[11px]">
             <Link
               href="/#app"
@@ -383,15 +390,13 @@ function Transformations() {
           </div>
         </div>
       </div>
-
-      <ImageCrop src={`${A}/app-mockup.png`} className="left-[1072px] top-[191px] h-[378px] w-[270px] rounded-[20px] border-[11px] border-white/70" imgClassName="h-[107.16%] w-[100.1%] left-0 top-[-7.16%]" />
     </section>
   );
 }
 
 function AppFitness() {
   return (
-    <section id="app" className="absolute left-[-10px] top-[1839px] h-[656px] w-[1440px]">
+    <section id="app" className="absolute left-[-10px] top-[1892px] h-[656px] w-[1440px]">
       <TitleBlock
         className="left-[374px] top-[33px] items-center"
         title={<><span className="font-bold text-brand">App fitness:</span><span> tu progreso, en tus manos</span></>}
@@ -494,7 +499,7 @@ function StoreButton({ type }: { type: "apple" | "google" }) {
 
 function Gyms() {
   return (
-    <section id="gimnasios" className="absolute left-0 top-[2460px] h-[676px] w-[1440px]">
+    <section id="gimnasios" className="absolute left-0 top-[2513px] h-[676px] w-[1440px]">
       <TitleBlock
         className="left-[276px] top-[36px] items-center"
         title="Entrenos en los mejores Gimnasios de España"
@@ -553,7 +558,7 @@ function GymCard({ gym }: { gym: Gym }) {
 
 function Challenges() {
   return (
-    <section id="retos" className="absolute left-0 top-[3137px] h-[676px] w-[1440px]">
+    <section id="retos" className="absolute left-0 top-[3190px] h-[676px] w-[1440px]">
       <TitleBlock
         className="left-[307px] top-[36px] items-center"
         title="Retos disponibles para cambiar tu físico"
@@ -608,7 +613,7 @@ function ChallengeCard({ challenge }: { challenge: Challenge }) {
 
 function SocialFeed() {
   return (
-    <section id="contenido" className="absolute left-0 top-[3904px] h-[1005px] w-[1440px]">
+    <section id="contenido" className="absolute left-0 top-[3957px] h-[1005px] w-[1440px]">
       <div className="absolute left-[360px] top-4 flex flex-col items-center gap-1 p-2.5">
         <h2 className="text-[40px] font-semibold tracking-[0.4px]">
           <span>Soy </span>
@@ -641,7 +646,7 @@ function SocialFeed() {
 
 function Footer() {
   return (
-    <footer className="absolute left-0 top-[4837px] h-[72px] w-[1440px] bg-white">
+    <footer className="absolute left-0 top-[4890px] h-[72px] w-[1440px] bg-white">
       <img
         alt=""
         loading="lazy"
