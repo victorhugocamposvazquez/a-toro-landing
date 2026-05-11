@@ -343,14 +343,14 @@ function Transformations() {
     <section id="transformaciones" className="absolute left-0 top-[1240px] h-[652px] w-[1440px]">
       <div className="flex h-full flex-col justify-center">
         <div className="px-24">
-          <h2 className="text-[44px] font-bold leading-tight tracking-tight text-[#383737]">
+          <h2 className="text-[40px] font-semibold leading-normal tracking-[0.4px] text-[#383737]">
             Increíbles transformaciones
           </h2>
-          <p className="mt-3 max-w-[800px] text-[18px] leading-relaxed text-[#8b8b8b]">
+          <p className="mt-2 max-w-[860px] text-[24px] leading-normal tracking-[0.24px] text-[#717171]">
             Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app.
           </p>
 
-          <div className="mt-10 flex flex-row items-start gap-8">
+          <div className="mt-10 flex flex-row items-start gap-10">
             <div className="flex flex-col">
               <div className="relative h-[300px] w-[260px] overflow-hidden rounded-2xl">
                 <Image
@@ -361,7 +361,7 @@ function Transformations() {
                   className="object-cover object-center"
                 />
               </div>
-              <div className="mt-4 flex w-[260px] justify-around text-[20px] font-medium tracking-[0.2px]">
+              <div className="mt-4 flex w-[260px] justify-between px-2 text-[20px] font-medium tracking-[0.2px]">
                 <span className="text-[#8b8b8b]">Antes</span>
                 <span className="text-brand">Después</span>
               </div>
@@ -377,15 +377,15 @@ function Transformations() {
                   className="object-cover object-center"
                 />
               </div>
-              <div className="mt-4 flex w-[260px] justify-around text-[20px] font-medium tracking-[0.2px]">
+              <div className="mt-4 flex w-[260px] justify-between px-2 text-[20px] font-medium tracking-[0.2px]">
                 <span className="text-[#8b8b8b]">Antes</span>
                 <span className="text-brand">Después</span>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <div className="w-[280px] rounded-[24px] bg-white p-7 shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
-                <Image src={`${A}/estrellas.svg`} alt="" width={140} height={22} className="h-[22px] w-[140px]" />
+              <div className="w-[280px] rounded-[24px] bg-white p-7 shadow-[0_2px_16px_rgba(0,0,0,0.05)] ring-1 ring-black/[0.03]">
+                <Image src={`${A}/estrellas.svg`} alt="" width={152} height={23} className="h-[23px] w-[152px]" />
                 <p className="mt-5 text-[16px] leading-normal tracking-[0.17px] text-[#8b8b8b]">
                   &quot;Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.&quot;
                 </p>
@@ -393,10 +393,10 @@ function Transformations() {
                   Natalia López
                 </p>
               </div>
-              <div className="mt-4 flex w-[280px] justify-center">
+              <div className="mt-4 flex w-[280px] justify-center px-px">
                 <Link
                   href="/#app"
-                  className="inline-flex items-center justify-center rounded-full bg-brand px-7 py-3.5 text-[16px] font-semibold text-white shadow-sm transition-colors hover:bg-brand/90"
+                  className="inline-flex w-full max-w-none items-center justify-center rounded-full bg-brand px-6 py-3.5 text-[16px] font-semibold tracking-[0.16px] text-white shadow-[0_1px_8px_rgba(0,0,0,0.12)] transition-colors hover:bg-brand/90"
                 >
                   ¡ Comienza la tuya gratis !
                 </Link>
@@ -404,7 +404,7 @@ function Transformations() {
             </div>
 
             <div className="flex flex-col">
-              <div className="relative h-[440px] w-[260px] overflow-hidden rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
+              <div className="relative h-[400px] w-[260px] overflow-hidden rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
                 <Image src={`${A}/app-mockup.png`} alt="" fill sizes="260px" className="object-cover object-center" />
               </div>
             </div>
