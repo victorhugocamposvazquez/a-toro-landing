@@ -105,7 +105,7 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
         style={sectionStyle(686, 550)}
       />
       <div
-        className="absolute inset-x-0 bg-[#ebebeb]"
+        className="absolute inset-x-0 bg-white"
         style={sectionStyle(1240, 652)}
       />
       <div
@@ -113,7 +113,7 @@ function FullBleedBackgrounds({ scale }: { scale: number }) {
         style={sectionStyle(1892, 621)}
       />
       <div
-        className="absolute inset-x-0 bg-[#ebebeb]"
+        className="absolute inset-x-0 bg-white"
         style={sectionStyle(2513, 676)}
       />
       <div
