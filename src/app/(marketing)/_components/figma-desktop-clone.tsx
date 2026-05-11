@@ -2,6 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -337,62 +338,60 @@ function ServiceIcon({ icon }: { icon: Service["icon"] }) {
 function Transformations() {
   return (
     <section id="transformaciones" className="absolute left-0 top-[1240px] h-[652px] w-[1440px]">
-      <TitleBlock
-        className="left-[82px] top-[36px] items-start"
-        title="Increíbles transformaciones"
-        subtitle="Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app."
-        subtitleClassName="w-[764px]"
-      />
+      <div className="flex h-full flex-col justify-center">
+        <div className="mx-auto max-w-[1440px] px-24">
+          <h2 className="text-[44px] font-bold leading-tight tracking-tight text-[#383737]">
+            Increíbles transformaciones
+          </h2>
+          <p className="mt-3 max-w-[800px] text-[18px] leading-relaxed text-[#8b8b8b]">
+            Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app.
+          </p>
 
-      <ImageCrop src={`${A}/chica-antes-despues.png`} className="left-[96px] top-[204px] h-[271px] w-[311px] rounded-[20px]" imgClassName="h-full w-[121.29%] left-[-13.25%] top-0" />
-      <ImageCrop src={`${A}/chico-antes-despues.png`} className="left-[428px] top-[204px] h-[271px] w-[289px] rounded-[20px]" imgClassName="h-[100.11%] w-[128.9%] left-[-19.4%] top-[-0.06%]" />
+          <div className="mt-12 flex flex-row items-start justify-between gap-6">
+            <div className="flex w-[22%] flex-col">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+                <Image src={`${A}/chica-antes-despues.png`} alt="" fill sizes="22vw" className="object-cover" />
+              </div>
+              <div className="mt-3 flex justify-around text-[20px] font-medium tracking-[0.2px]">
+                <span className="text-[#8b8b8b]">Antes</span>
+                <span className="text-brand">Después</span>
+              </div>
+            </div>
 
-      <Label left={141} top={510} muted>Antes</Label>
-      <Label left={282} top={510}>Después</Label>
-      <Label left={454} top={510} muted>Antes</Label>
-      <Label left={600} top={510}>Después</Label>
+            <div className="flex w-[22%] flex-col">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+                <Image src={`${A}/chico-antes-despues.png`} alt="" fill sizes="22vw" className="object-cover" />
+              </div>
+              <div className="mt-3 flex justify-around text-[20px] font-medium tracking-[0.2px]">
+                <span className="text-[#8b8b8b]">Antes</span>
+                <span className="text-brand">Después</span>
+              </div>
+            </div>
 
-      {/* Misma línea superior que antes/después (top 204); foto estira a la altura del stack y queda encima en el solapo */}
-      <div className="absolute left-[716px] top-[204px] flex flex-row items-stretch gap-0">
-        <div className="relative z-10 flex w-[278px] shrink-0 flex-col gap-4">
-          <div className="w-[276px] rounded-[24px] bg-white p-[30px] shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
-            <div className="flex w-full max-w-[252px] flex-col gap-[22px]">
-              <img
-                alt=""
-                loading="lazy"
-                decoding="async"
-                src={`${A}/estrellas.svg`}
-                className="h-[23px] w-[152px]"
-              />
-              <div className="flex w-full max-w-[240px] flex-col gap-2 leading-normal">
-                <p className="text-[17px] tracking-[0.17px] text-[#8b8b8b]">
+            <div className="flex w-[24%] flex-col items-center">
+              <div className="w-full rounded-[24px] bg-white p-7 shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
+                <Image src={`${A}/estrellas.svg`} alt="" width={152} height={23} className="h-[23px] w-[152px]" />
+                <p className="mt-6 text-[17px] leading-normal tracking-[0.17px] text-[#8b8b8b]">
                   “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
                 </p>
-                <p className="text-[21px] font-semibold tracking-[0.21px] text-[#1b1b1b]">
+                <p className="mt-3 text-[21px] font-semibold tracking-[0.21px] text-[#383737]">
                   Natalia López
                 </p>
               </div>
-            </div>
-          </div>
-          <div className="flex w-[276px] justify-center">
-            <div className="rounded-full bg-[#efefef] p-[11px]">
               <Link
                 href="/#app"
-                className="inline-flex h-[50px] min-w-[236px] items-center justify-center rounded-full bg-brand px-8 text-[18px] font-semibold tracking-[0.18px] text-white"
+                className="mt-5 inline-flex items-center justify-center rounded-full bg-brand px-8 py-3.5 text-[17px] font-semibold text-white shadow-sm transition-colors hover:bg-brand/90"
               >
                 ¡ Comienza la tuya gratis !
               </Link>
             </div>
+
+            <div className="flex w-[24%] flex-col">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
+                <Image src={`${A}/app-mockup.png`} alt="" fill sizes="24vw" className="object-cover object-center" />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="relative z-20 -ml-[80px] min-h-0 w-[302px] shrink-0 overflow-hidden rounded-[22px] border-[11px] border-white/80 shadow-[0_18px_48px_rgba(0,0,0,0.2)]">
-          <img
-            alt=""
-            loading="lazy"
-            decoding="async"
-            src={`${A}/app-mockup.png`}
-            className="pointer-events-none h-full w-full select-none object-cover object-top"
-          />
         </div>
       </div>
     </section>
