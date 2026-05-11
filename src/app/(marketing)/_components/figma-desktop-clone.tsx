@@ -42,7 +42,7 @@ export function FigmaDesktopClone() {
     <main className="relative overflow-x-hidden bg-white">
       <FullBleedBackgrounds scale={scale} />
       <div
-        className="relative z-10 mx-auto overflow-visible"
+        className="relative z-10 mx-auto overflow-hidden"
         style={{
           width: 1440 * scale,
           height: 4962 * scale,
@@ -52,6 +52,9 @@ export function FigmaDesktopClone() {
           className="relative h-[4962px] w-[1440px] origin-top-left bg-transparent text-[#383737]"
           style={{
             transform: `scale(${scale})`,
+            willChange: "transform",
+            backfaceVisibility: "hidden",
+            WebkitFontSmoothing: "antialiased",
           }}
         >
           <Hero />
