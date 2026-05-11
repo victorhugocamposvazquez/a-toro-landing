@@ -339,7 +339,7 @@ function Transformations() {
   return (
     <section id="transformaciones" className="absolute left-0 top-[1240px] h-[652px] w-[1440px]">
       <div className="flex h-full flex-col justify-center">
-        <div className="mx-auto max-w-[1440px] px-24">
+        <div className="px-24">
           <h2 className="text-[44px] font-bold leading-tight tracking-tight text-[#383737]">
             Increíbles transformaciones
           </h2>
@@ -347,48 +347,62 @@ function Transformations() {
             Estos son algunos de los clientes que han logrado resultados con mis programas a través de la app.
           </p>
 
-          <div className="mt-12 flex flex-row items-start justify-between gap-6">
-            <div className="flex w-[22%] flex-col">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
-                <Image src={`${A}/chica-antes-despues.png`} alt="" fill sizes="22vw" className="object-cover" />
+          <div className="mt-10 flex flex-row items-start gap-8">
+            <div className="flex flex-col">
+              <div className="relative h-[300px] w-[260px] overflow-hidden rounded-2xl">
+                <Image
+                  src={`${A}/chica-antes-despues.png`}
+                  alt=""
+                  fill
+                  sizes="260px"
+                  className="object-cover object-center"
+                />
               </div>
-              <div className="mt-3 flex justify-around text-[20px] font-medium tracking-[0.2px]">
+              <div className="mt-4 flex w-[260px] justify-around text-[20px] font-medium tracking-[0.2px]">
                 <span className="text-[#8b8b8b]">Antes</span>
                 <span className="text-brand">Después</span>
               </div>
             </div>
 
-            <div className="flex w-[22%] flex-col">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
-                <Image src={`${A}/chico-antes-despues.png`} alt="" fill sizes="22vw" className="object-cover" />
+            <div className="flex flex-col">
+              <div className="relative h-[300px] w-[260px] overflow-hidden rounded-2xl">
+                <Image
+                  src={`${A}/chico-antes-despues.png`}
+                  alt=""
+                  fill
+                  sizes="260px"
+                  className="object-cover object-center"
+                />
               </div>
-              <div className="mt-3 flex justify-around text-[20px] font-medium tracking-[0.2px]">
+              <div className="mt-4 flex w-[260px] justify-around text-[20px] font-medium tracking-[0.2px]">
                 <span className="text-[#8b8b8b]">Antes</span>
                 <span className="text-brand">Después</span>
               </div>
             </div>
 
-            <div className="flex w-[24%] flex-col items-center">
-              <div className="w-full rounded-[24px] bg-white p-7 shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
-                <Image src={`${A}/estrellas.svg`} alt="" width={152} height={23} className="h-[23px] w-[152px]" />
-                <p className="mt-6 text-[17px] leading-normal tracking-[0.17px] text-[#8b8b8b]">
-                  “Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.”
+            <div className="flex flex-col">
+              <div className="w-[280px] rounded-[24px] bg-white p-7 shadow-[0_6px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.07]">
+                <Image src={`${A}/estrellas.svg`} alt="" width={140} height={22} className="h-[22px] w-[140px]" />
+                <p className="mt-5 text-[16px] leading-normal tracking-[0.17px] text-[#8b8b8b]">
+                  &quot;Abraham me ayudó a cambiar mi vida, a conseguir el cambio que siempre había deseado, y aprender a llevar una vida saludable y sostenida.&quot;
                 </p>
-                <p className="mt-3 text-[21px] font-semibold tracking-[0.21px] text-[#383737]">
+                <p className="mt-3 text-[20px] font-semibold tracking-[0.21px] text-[#383737]">
                   Natalia López
                 </p>
               </div>
-              <Link
-                href="/#app"
-                className="mt-5 inline-flex items-center justify-center rounded-full bg-brand px-8 py-3.5 text-[17px] font-semibold text-white shadow-sm transition-colors hover:bg-brand/90"
-              >
-                ¡ Comienza la tuya gratis !
-              </Link>
+              <div className="mt-4 flex w-[280px] justify-center">
+                <Link
+                  href="/#app"
+                  className="inline-flex items-center justify-center rounded-full bg-brand px-7 py-3.5 text-[16px] font-semibold text-white shadow-sm transition-colors hover:bg-brand/90"
+                >
+                  ¡ Comienza la tuya gratis !
+                </Link>
+              </div>
             </div>
 
-            <div className="flex w-[24%] flex-col">
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
-                <Image src={`${A}/app-mockup.png`} alt="" fill sizes="24vw" className="object-cover object-center" />
+            <div className="flex flex-col">
+              <div className="relative h-[440px] w-[260px] overflow-hidden rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
+                <Image src={`${A}/app-mockup.png`} alt="" fill sizes="260px" className="object-cover object-center" />
               </div>
             </div>
           </div>
